@@ -1,0 +1,48 @@
+{
+  "name": "ARCity",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android-debug": "react-native run-android && exit 0",
+    "android-debug-clean": "yarn clean-android && yarn android-debug",
+    "android-alpha": "cd android && ./gradlew assembleReleaseAlpha && cd .. && yarn android-install-alpha",
+    "android-alpha-clean": "yarn clean-android && yarn android-alpha",
+    "android-release": "cd android && ./gradlew assembleRelease && cd .. && yarn android-install-release",
+    "android-release-clean": "yarn clean-android && yarn android-release",
+    "clean-android": "cd android && ./gradlew clean",
+    "android-install-debug": "cd android/app/build/outputs/apk/debug && adb install -r app-debug.apk",
+    "android-install-alpha": "cd android/app/build/outputs/apk/releaseAlpha && adb install -r app-releaseAlpha.apk",
+    "android-install-release": "cd android/app/build/outputs/apk/release && adb install -r app-release.apk",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.5",
+    "@react-navigation/bottom-tabs": "^5.0.0-alpha.34",
+    "@react-navigation/native": "^5.0.0-alpha.24",
+    "@react-navigation/stack": "^5.0.0-alpha.58",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-gesture-handler": "^1.5.3",
+    "react-native-reanimated": "^1.4.0",
+    "react-native-safe-area-context": "^0.6.2",
+    "react-native-screens": "^2.0.0-alpha.22"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-import-resolver-babel-module": "^5.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "react-test-renderer": "16.9.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

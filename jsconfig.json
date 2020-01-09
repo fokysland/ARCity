@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "_assets": ["./app/assets/*"],
+      "_components/*": ["./app/components/*"],
+      "_navigation/*": ["./app/navigation/*"],
+      "_services/*": ["./app/services/*"],
+      "_styles/*": ["./app/styles/*"],
+      "_utils/*": ["./app/utils/*"],
+      "_api/*": ["./app/services/api/*"],
+      "_screens/*": ["./app/screens/*"]
+    },
+    "jsx": "react-native"
+  },
+  "exclude": ["node_modules"]
+}

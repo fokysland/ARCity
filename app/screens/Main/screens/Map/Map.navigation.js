@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 import {View} from 'react-native';
 import {SearchBar} from 'react-native-elements';
-import {createIconSet} from 'react-native-vector-icons';
 
 import MapScreen from './Map.screen';
 
@@ -17,8 +16,8 @@ const MapNavigation = () => {
         onChangeText={setSearch}
         containerStyle={MapStyles.containerStyle}
         inputStyle={MapStyles.searchInputStyle}
+        placeholder="Поиск"
       />
-
       <MapScreen />
     </View>
   );

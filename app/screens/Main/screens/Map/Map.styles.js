@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {primaryColor, additionalColor, secondaryColor} from '_styles/colors';
 
 const MapStyles = StyleSheet.create({
   containerStyle: {
@@ -13,7 +14,10 @@ const MapStyles = StyleSheet.create({
     borderTopColor: 'transparent',
   },
   viewStyle: StyleSheet.absoluteFill,
-  searchInputStyle: {},
+  searchInputStyle: {
+    color: primaryColor,
+    backgroundColor: secondaryColor,
+  },
 });
 
 export default MapStyles;

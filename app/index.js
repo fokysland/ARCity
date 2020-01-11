@@ -1,20 +1,20 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
+import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
-import {store} from '_redux/store';
+import {store, persistor} from '_redux/store';
 
 import {NavigationNativeContainer} from '@react-navigation/native';
 import RootNavigation from '_navigation/index';
 
 const App = () => {
-  useEffect(() => {
-      
-  }, []);
   return (
     <Provider store={store}>
-      <NavigationNativeContainer>
-        <RootNavigation />
-      </NavigationNativeContainer>
+      <PersistGate persistor={persistor}>
+        <NavigationNativeContainer>
+          <RootNavigation />
+        </NavigationNativeContainer>
+      </PersistGate>
     </Provider>
   );
 };

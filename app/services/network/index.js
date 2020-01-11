@@ -40,10 +40,14 @@ function getContentType(isMultipart) {
 
 async function checkAuth(route, data, res) {
   if (res.status === 401) {
+    const refreshToken = getRefreshToken();
+    if (!refreshToken) {
+      return {...res, reauth: true};
+    }
     let refreshRes = await post(
       '/oauth/refresh',
       {
-        refreshToken: getRefreshToken(),
+        refreshToken,
       },
       false,
     );
@@ -58,7 +62,9 @@ async function checkAuth(route, data, res) {
         return get(route, data);
       }
     }
-  } else return res;
+  } else {
+    return res;
+  }
 }
 
 function parseBody(response) {
@@ -89,7 +95,9 @@ function sendBodyRequest(
     'Content-Type': getContentType(isMultipart),
   };
 
-  if (isProtected) addAuthorizationHeader(headers);
+  if (isProtected) {
+    addAuthorizationHeader(headers);
+  }
 
   const endpoint = constructEndpoint(route, apiVersion);
   const body = isMultipart ? data : JSON.stringify(data);
@@ -99,9 +107,9 @@ function sendBodyRequest(
   }
 
   return fetch(endpoint, {
-    method: method,
-    headers: headers,
-    body: body,
+    method,
+    headers,
+    body,
   })
     .then(requestLogger)
     .then(bodyRequestResolve)
@@ -129,7 +137,9 @@ function sendQueryRequest(route, data, method, isProtected, apiVersion) {
     Accept: 'application/json',
   };
 
-  if (isProtected) addAuthorizationHeader(headers);
+  if (isProtected) {
+    addAuthorizationHeader(headers);
+  }
 
   const endpoint = constructEndpoint(route, apiVersion) + jsonToUrl(data);
 
@@ -152,7 +162,9 @@ async function queryRequestResolve(response) {
   const body = await parseBody(response);
 
   let error = null;
-  if (response.status == 500) error = ERR_500;
+  if (response.status == 500) {
+    error = ERR_500;
+  }
 
   return {
     body,
@@ -177,7 +189,6 @@ function checkForNewToken(res) {
 function requestLogger(res) {
   if (REQUEST_LOGGING_ENABLED) {
     console.log(res.status + ' ' + res.url);
-    //console.log(res);
   }
 
   return res;

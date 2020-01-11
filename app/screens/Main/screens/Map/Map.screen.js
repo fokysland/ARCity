@@ -1,34 +1,31 @@
 import React, {useState} from 'react';
 
+import Icon from 'react-native-vector-icons/Feather';
+
 import {View} from 'react-native';
 import MapView from 'react-native-maps';
 import {SearchBar} from 'react-native-elements';
 
+import MapStyles from './Map.styles';
 import {primaryColor} from '_styles/colors';
 
-import MapStyles from './Map.styles';
-
 const MapScreen = () => {
-  const {
-    viewStyle,
-    searchContainerStyle,
-    searchInputStyle,
-    mapContainer,
-    map,
-  } = MapStyles;
   const [search, setSearch] = useState('');
   return (
-    <View style={viewStyle}>
+    <View style={MapStyles.viewStyle}>
       <SearchBar
         value={search}
         onChangeText={setSearch}
-        containerStyle={searchContainerStyle}
-        inputStyle={searchInputStyle}
+        searchIcon={<Icon name="search" size={20} color={primaryColor} />}
+        containerStyle={MapStyles.searchContainer}
+        inputContainerStyle={MapStyles.searchInputContainer}
+        inputStyle={MapStyles.searchInput}
         placeholder="Поиск"
         placeholderTextColor={primaryColor}
+        leftIconContainerStyle={MapStyles.leftContainer}
       />
-      <View style={mapContainer}>
-        <MapView style={map} showsCompass={false} />
+      <View style={MapStyles.mapContainer}>
+        <MapView style={MapStyles.map} showsCompass={false} />
       </View>
     </View>
   );

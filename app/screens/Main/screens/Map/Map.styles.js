@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {primaryColor, secondaryColor} from '_styles/colors';
 
 const MapStyles = StyleSheet.create({
-  searchContainerStyle: {
+  searchContainer: {
     position: 'absolute',
     zIndex: 100,
     width: '80%',
@@ -14,8 +14,16 @@ const MapStyles = StyleSheet.create({
     borderTopColor: 'transparent',
   },
   viewStyle: StyleSheet.absoluteFill,
-  searchInputStyle: {
+  searchInput: {
     color: primaryColor,
+    fontSize: 14,
+    backgroundColor: secondaryColor,
+  },
+  searchInputContainer: {
+    height: 45,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 15,
     backgroundColor: secondaryColor,
   },
   mapContainer: {
@@ -23,6 +31,9 @@ const MapStyles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+  },
+  leftContainer: {
+    backgroundColor: secondaryColor,
   },
 });
 

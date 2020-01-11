@@ -8,7 +8,7 @@ import LoadingNavigation from '_screens/AuthFlow/Loading/Loading.navigation';
 
 const RootNavigation = ({isLoading, isLoggedIn}) => {
   if (isLoading) {
-    return <LoadingNavigation />;
+    return <LoadingNavigation isLoading={isLoading} />;
   }
   if (!isLoggedIn) {
     return <AuthNavigation />;

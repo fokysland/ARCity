@@ -1,26 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import {View} from 'react-native';
-import {SearchBar} from 'react-native-elements';
-
-import MapScreen from './Map.screen';
-
-import MapStyles from './Map.styles';
+import MapScreen from '_screens/Main/screens/Map/Map.screen';
 
 const MapNavigation = () => {
-  const [search, setSearch] = useState('');
-  return (
-    <View style={MapStyles.viewStyle}>
-      <SearchBar
-        value={search}
-        onChangeText={setSearch}
-        containerStyle={MapStyles.containerStyle}
-        inputStyle={MapStyles.searchInputStyle}
-        placeholder="Поиск"
-      />
-      <MapScreen />
-    </View>
-  );
+  return <MapScreen />;
 };
 
 export default MapNavigation;

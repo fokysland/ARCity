@@ -1,12 +1,24 @@
 import React from 'react';
-import MainNavigation from '_screens/Main/Main.navigation';
 
-const RootNavigation = () => {
-  return (
-    <>
-      <MainNavigation />
-    </>
-  );
+import {connect} from 'react-redux';
+
+import MainNavigation from '_screens/Main/Main.navigation';
+import AuthNavigation from '_screens/AuthFlow/Auth/Auth.navigation';
+import LoadingNavigation from '_screens/AuthFlow/Loading/Loading.navigation';
+
+const RootNavigation = ({isLoading, isLoggedIn}) => {
+  if (isLoading) {
+    return <LoadingNavigation />;
+  }
+  if (!isLoggedIn) {
+    return <AuthNavigation />;
+  }
+  return <MainNavigation />;
 };
 
-export default RootNavigation;
+const mapStateToProps = ({global: {properties}}) => ({
+  isLoading: properties.isLoading,
+  isLoggedIn: properties.isLoggedIn,
+});
+
+export default connect(mapStateToProps)(RootNavigation);

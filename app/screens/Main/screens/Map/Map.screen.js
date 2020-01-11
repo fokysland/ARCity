@@ -1,22 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+import {View} from 'react-native';
 import MapView from 'react-native-maps';
-import {StyleSheet, View} from 'react-native';
+import {SearchBar} from 'react-native-elements';
 
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
+import {primaryColor} from '_styles/colors';
 
-const MapScreen = () => (
-  <View style={styles.container}>
-    <MapView style={styles.map} />
-  </View>
-);
+import MapStyles from './Map.styles';
+
+const MapScreen = () => {
+  const {
+    viewStyle,
+    searchContainerStyle,
+    searchInputStyle,
+    mapContainer,
+    map,
+  } = MapStyles;
+  const [search, setSearch] = useState('');
+  return (
+    <View style={viewStyle}>
+      <SearchBar
+        value={search}
+        onChangeText={setSearch}
+        containerStyle={searchContainerStyle}
+        inputStyle={searchInputStyle}
+        placeholder="Поиск"
+        placeholderTextColor={primaryColor}
+      />
+      <View style={mapContainer}>
+        <MapView style={map} showsCompass={false} />
+      </View>
+    </View>
+  );
+};
 
 export default MapScreen;

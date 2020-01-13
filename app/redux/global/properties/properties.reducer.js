@@ -11,9 +11,9 @@ const handlers = {
   DEFAULT: state => state,
 };
 
-const propertiesReducers = (state = defaultState, action) => {
+const propertiesReducer = (state = defaultState, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
   return handler(state, action.payload);
 };
 
-export default propertiesReducers;
+export default propertiesReducer;

@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 // Screen navigators
 import MapNavigation from './screens/Map/Map.navigation';
+import NewRequestNavigation from './screens/NewRequest/NewRequest.navigation';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -24,6 +25,7 @@ const MainNavigation = () => {
           ),
         }}
       />
+      <Screen name="req" component={NewRequestNavigation} />
     </Navigator>
   );
 };

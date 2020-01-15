@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
-import * as stylesIndex from '_styles/index.js';
+import {Colors, Helpers, Typography} from '_styles/index';
 
 const registrationStyles = StyleSheet.create({
   arcityLabel: {
-    color: stylesIndex.Colors.primaryColor,
+    color: Colors.primaryColor,
     fontFamily: 'Montserrat-ExtraBold',
     fontSize: 44,
     marginTop: 22,
@@ -13,9 +13,9 @@ const registrationStyles = StyleSheet.create({
     marginRight: 'auto',
   },
   AuthInputs: {
-    height: stylesIndex.Helpers.verticalScale(39),
+    height: Helpers.verticalScale(39),
     minWidth: '56%',
-    borderColor: stylesIndex.Colors.primaryColor,
+    borderColor: Colors.primaryColor,
     borderWidth: 1,
     marginBottom: 20,
     borderLeftWidth: 0,
@@ -28,11 +28,11 @@ const registrationStyles = StyleSheet.create({
     marginTop: 19,
   },
   signupButton: {
-    backgroundColor: stylesIndex.Colors.primaryColor,
+    backgroundColor: Colors.primaryColor,
     borderRadius: 50,
     minWidth: '56%',
     width: '56%',
-    height: stylesIndex.Helpers.verticalScale(44),
+    height: Helpers.verticalScale(44),
     marginLeft: 'auto',
     marginRight: 'auto',
   },
@@ -48,12 +48,12 @@ const registrationStyles = StyleSheet.create({
     marginTop: 46,
   },
   gotoAuth: {
-    color: stylesIndex.Colors.primaryColor,
+    color: Colors.primaryColor,
     fontFamily: 'Montserrat-Medium',
     fontSize: 14,
   },
   addPhotoText: {
-    color: stylesIndex.Colors.primaryColor,
+    color: Colors.primaryColor,
     fontFamily: 'Montserrat-Medium',
     fontSize: 14,
     marginLeft: 'auto',
@@ -79,8 +79,8 @@ const registrationStyles = StyleSheet.create({
   },
   uploadAvatar: {
     backgroundColor: '#FFFFFF66',
-    width: stylesIndex.Helpers.scaleSize(210),
-    height: stylesIndex.Helpers.scaleSize(210),
+    width: Helpers.scaleSize(210),
+    height: Helpers.scaleSize(210),
     borderRadius: 15,
   },
 });

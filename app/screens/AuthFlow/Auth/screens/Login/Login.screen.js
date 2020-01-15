@@ -1,27 +1,55 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import {TouchableOpacity, View, Text} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 
-import {store} from '_redux/store';
-import {getTokens, goToMain} from '_redux/global/actions';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+
+import AuthField from '../../components/AuthField.js';
+
+import loginStyles from './Login.styles.js';
+
+const logo = require('_assets/images/ARCity_logo.png');
+const background = require('_assets/images/nycBackground.png');
 
 const LoginScreen = () => {
-  const [error, setError] = useState('');
-  const onPress = async () => {
-    try {
-      await store.dispatch(getTokens('test', 'test'));
-      store.dispatch(goToMain());
-    } catch (e) {
-      setError(e && e.message);
-    }
-  };
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>{error}</Text>
-      <TouchableOpacity onPress={onPress}>
-        <Text>Hey</Text>
-      </TouchableOpacity>
-    </View>
+    <ImageBackground source={background} style={loginStyles.nycBack}>
+      <KeyboardAwareScrollView
+        enableOnAndroid={true}
+        style={loginStyles.awareView}
+        contentContainerStyle={loginStyles.awareChild}>
+        <View>
+          <View style={loginStyles.LogoContainer}>
+            <Image source={logo} style={loginStyles.arcityIcon} />
+            <Text style={loginStyles.arcityLabel}>ARCity</Text>
+          </View>
+
+          <View style={loginStyles.authContainer}>
+            <AuthField placeholder="Email" />
+            <AuthField placeholder="Пароль" />
+          </View>
+
+          <View style={loginStyles.loginButtonContainer}>
+            <TouchableOpacity
+              style={loginStyles.loginButton}
+              underlayColor="#000">
+              <Text style={loginStyles.loginText}>LOG IN</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={loginStyles.gotoRegContainer}>
+            <TouchableOpacity>
+              <Text style={loginStyles.gotoReg}>Не зарегестрированы?</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </KeyboardAwareScrollView>
+    </ImageBackground>
   );
 };
 

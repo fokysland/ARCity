@@ -2,7 +2,7 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 import {store} from '_redux/store';
-import {setOpened} from '../../Map.actions';
+import {setOpened, setSearch} from '../../Map.actions';
 
 import {View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
@@ -14,6 +14,9 @@ import SearchBarStyles from './SearchBar.styles';
 import {additionalColor, primaryColor} from '_styles/colors';
 
 const SearchBar = ({search, opened}) => {
+  const handleChange = ({nativeEvent}) => {
+    store.dispatch(setSearch(nativeEvent.text));
+  };
   return (
     <View style={SearchBarStyles.searchBarContainer}>
       <BasicSearchBar
@@ -27,7 +30,7 @@ const SearchBar = ({search, opened}) => {
           </DropDown>
         }
         search={search}
-        onChange={}
+        onChange={handleChange}
         outerContainerStyle={SearchBarStyles.searchContainer}
         innerContainerStyle={SearchBarStyles.searchInputContainer}
         inputStyle={SearchBarStyles.searchInput}
@@ -41,7 +44,7 @@ const SearchBar = ({search, opened}) => {
 
 const mapStateToProps = ({
   main: {
-    map: {search},
+    map: {search, opened},
   },
 }) => ({
   search,

@@ -4,8 +4,8 @@ import {
   SET_RANGE,
   SET_SEARCH,
   SET_FRIEND,
-  SET_TYPE,
   SET_OPENED,
+  SET_CATEGORY,
 } from './Map.actions';
 
 const defaultState = {
@@ -45,11 +45,11 @@ const handlers = {
     ...state,
     friend: !state.main.map.friend,
   }),
-  [SET_TYPE]: (state, type) => ({
+  [SET_CATEGORY]: (state, category) => ({
     ...state,
     types: {
       ...state.main.map.types,
-      [type]: !state.main.map.types[type],
+      [category]: !state.main.map.types[category],
     },
   }),
   [SET_OPENED]: state => ({

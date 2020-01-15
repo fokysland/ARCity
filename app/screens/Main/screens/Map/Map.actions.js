@@ -46,10 +46,10 @@ export const setRange = range => ({
   payload: range,
 });
 
-export const SET_TYPE = 'SET_TYPE';
-export const setType = type => ({
-  type: SET_TYPE,
-  payload: type,
+export const SET_CATEGORY = 'SET_CATEGORY';
+export const setCategory = category => ({
+  type: SET_CATEGORY,
+  payload: category,
 });
 
 export const SET_OPENED = 'SET_OPENED';

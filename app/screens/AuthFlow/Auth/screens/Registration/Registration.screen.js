@@ -10,13 +10,13 @@ import {
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import registrationStyles from './Registration.styles.js';
-import AuthField from './Components/AuthField.js';
+import {AuthField} from '../../components/index';
 
-const req1 = require('../../assets/images/nycBackground.png');
+const background = require('_assets/images/nycBackground.png');
 
 const RegistrationScreen = () => {
   return (
-    <ImageBackground source={req1} style={registrationStyles.nycBack}>
+    <ImageBackground source={background} style={registrationStyles.nycBack}>
       <KeyboardAwareScrollView
         enableOnAndroid={true}
         style={registrationStyles.awareView}
@@ -34,12 +34,10 @@ const RegistrationScreen = () => {
                 </View>
               </TouchableWithoutFeedback>
             </View>
+
             <AuthField placeholder="Email" />
-
             <AuthField placeholder="Имя" />
-
             <AuthField placeholder="Пароль" />
-
             <AuthField placeholder="Повторите пароль" />
           </View>
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import {TextInput} from 'react-native';
-import * as stylesIndex from '_styles/index.js';
-import registrationStyles from '../Registration.styles.js';
+import * as stylesIndex from '_styles/../../../../styles';
+import loginStyles from '../screens/Login/Login.styles.js';
 
 const AuthField = props => {
   return (
     <TextInput
-      style={registrationStyles.AuthInputs}
+      style={loginStyles.AuthInputs}
       placeholder={props.placeholder}
       placeholderTextColor={stylesIndex.Colors.primaryColor}
     />

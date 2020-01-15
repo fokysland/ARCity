@@ -2,17 +2,24 @@ import React from 'react';
 
 import {View} from 'react-native';
 
-import ImagePicker from 'react-native-image-picker';
+import BasicImagePicker from 'react-native-image-picker';
 
 import ImagePickerStyles from './ImagePicker.styles';
 
-const options = {
-  title: 'select aaa',
-    
-};
+const getOptions = title => ({
+  title,
+});
 
 const ImagePicker = ({uri, setUri}) => {
-  return <View style={ImagePickerStyles.container} />;
+  const handleClick = () => {
+    BasicImagePicker.showImagePicker(getOptions('hey'), res => {
+      const {uri} = res;
+      setUri(uri);
+    });
+  };
+  return (
+    <View style={ImagePickerStyles.container} onTouchStart={handleClick} />
+  );
 };
 
 export default ImagePicker;

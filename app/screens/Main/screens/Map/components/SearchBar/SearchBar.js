@@ -1,24 +1,33 @@
 import React from 'react';
-import SearchBarStyles from './SearchBar.styles';
-import {primaryColor} from '_styles/colors';
-import {SearchBar as BasicSearchBar} from '_components/index';
-import {View} from 'react-native';
 
-const SearchBar = ({
-  search,
-  setSearch,
-  leftChild,
-  rightChild,
-  isOpened,
-  setOpened,
-}) => {
+import {connect} from 'react-redux';
+import {store} from '_redux/store';
+import {setOpened} from '../../Map.actions';
+
+import {View} from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
+
+import {DropDown, SearchBar as BasicSearchBar} from '_components/index';
+import {Options} from '../index';
+
+import SearchBarStyles from './SearchBar.styles';
+import {additionalColor, primaryColor} from '_styles/colors';
+
+const SearchBar = ({search, opened}) => {
   return (
     <View style={SearchBarStyles.searchBarContainer}>
       <BasicSearchBar
-        value={search}
-        onChangeText={setSearch}
-        leftChild={leftChild}
-        rightChild={rightChild}
+        leftChild={<Feather name="search" size={20} color={primaryColor} />}
+        rightChild={
+          <DropDown
+            icon={<Feather name="filter" color={additionalColor} size={20} />}
+            isOpened={opened}
+            setOpened={() => store.dispatch(setOpened())}>
+            <Options />
+          </DropDown>
+        }
+        search={search}
+        onChange={}
         outerContainerStyle={SearchBarStyles.searchContainer}
         innerContainerStyle={SearchBarStyles.searchInputContainer}
         inputStyle={SearchBarStyles.searchInput}
@@ -30,4 +39,13 @@ const SearchBar = ({
   );
 };
 
-export default SearchBar;
+const mapStateToProps = ({
+  main: {
+    map: {search},
+  },
+}) => ({
+  search,
+  opened,
+});
+
+export default connect(mapStateToProps)(SearchBar);

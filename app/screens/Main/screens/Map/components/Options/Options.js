@@ -1,38 +1,30 @@
 import React from 'react';
-import {View, TextInput} from 'react-native';
+import {View} from 'react-native';
 
 import {CheckBox} from 'react-native-elements';
 import Slider from '@ptomasroos/react-native-multi-slider';
 
 import {Header, SwitchButton} from '_components/index';
 
+import {Categories} from '_utils/index';
+
 import OptionsStyles from './Options.styles';
 import {primaryColor} from '_styles/colors';
 
-const Options = ({
-  like,
-  friend,
-  range,
-  types,
-  setTypes,
-  setRange,
-  setFriend,
-  setLike,
-}) => {
-  const setOneType = type => () => {
-    setTypes({...types, [type]: !types[type]});
+const Options = ({like, friend, range, types}) => {
+  const switchHandler = type => ({nativeEvent}) => {
+    console.log(nativeEvent);
   };
   return (
     <View style={OptionsStyles.container}>
       <Header size={14} text="Фильтр" style={OptionsStyles.header} bold />
-      <TextInput />
       <View style={OptionsStyles.group}>
-        <SwitchButton value={like} onValueChange={setLike} />
+        <SwitchButton value={like} onValueChange={switchHandler('like')} />
         <Header size={12} text="Нравится другу" style={OptionsStyles.title} />
       </View>
 
       <View style={OptionsStyles.group}>
-        <SwitchButton value={friend} onValueChange={setFriend} />
+        <SwitchButton value={friend} onValueChange={switchHandler('friend')} />
         <Header size={12} text="От друга" style={OptionsStyles.title} />
       </View>
 
@@ -40,7 +32,7 @@ const Options = ({
         <Header size={12} text="Расстояние" />
         <Slider
           values={[range]}
-          onValuesChange={([value]) => setRange(value)}
+          //   onValuesChange={([value]) => setRange(value)}
           min={1}
           max={10}
           step={0.5}
@@ -51,18 +43,12 @@ const Options = ({
 
       <View>
         <Header size={12} text="Тип объекта" />
-        {[
-          {text: 'Скамья', type: 'bench'},
-          {text: 'Фонарь', type: 'lamp'},
-          {text: 'Урна', type: 'urn'},
-          {text: 'Клумба', type: 'flowerbed'},
-          {text: 'Пандус', type: 'ramp'},
-          {text: 'Другое', type: 'other'},
-        ].map((category, i) => (
+        {Categories.getCategoriesWithText().map((category, i) => (
           <View
             style={OptionsStyles.option}
             key={category.type}
-            onTouchStart={setOneType(category.type)}>
+            // onTouchStart={}
+          >
             <Header text={category.text} size={11} />
             <CheckBox
               checkedColor={primaryColor}

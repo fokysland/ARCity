@@ -27,7 +27,7 @@ export const store = createStore(
   {
     global: {
       tokens: {
-        accessToken: 'c9ab9b00-6e06-4448-ae85-38561ccae4dd',
+        accessToken: '111',
         refreshToken: '40d9631f-0a64-4a2d-859d-744ff64ba502',
       },
     },

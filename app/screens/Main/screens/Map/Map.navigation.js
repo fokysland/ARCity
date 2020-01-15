@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MapScreen from '_screens/Main/screens/Map/Map.screen';
+import MapScreen from './Map.screen';
 
 const MapNavigation = () => {
   return <MapScreen />;

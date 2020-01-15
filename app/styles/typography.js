@@ -1,42 +1,47 @@
-import { Platform } from 'react-native';
- 
-//families
+import {Platform} from 'react-native';
+
+// families
 export const FONT_REGULAR = Platform.select({
-    android: {
-        fontFamily: 'Roboto-Regular'
-    },
-    ios: {
-        fontFamily: 'System',
-        fontWeight: '400'
-    }
+  android: {
+    fontFamily: 'Montserrat-Regular',
+  },
+  ios: {
+    fontFamily: 'Montserrat-Regular',
+  },
 });
- 
+
 export const FONT_MEDIUM = Platform.select({
-    android: {
-        fontFamily: 'Roboto-Medium'
-    },
-    ios: {
-        fontFamily: 'System',
-        fontWeight: '500'
-    }
+  android: {
+    fontFamily: 'Montserrat-Medium',
+  },
+  ios: {
+    fontFamily: 'Montserrat-Medium',
+  },
 });
- 
+
 export const FONT_SEMIBOLD = Platform.select({
-    android: {
-        fontFamily: 'Roboto-Medium'
-    },
-    ios: {
-        fontFamily: 'System',
-        fontWeight: '600'
-    }
+  android: {
+    fontFamily: 'Montserrat-Medium',
+  },
+  ios: {
+    fontFamily: 'Montserrat-Medium',
+  },
 });
- 
+
 export const FONT_BOLD = Platform.select({
-    android: {
-        fontFamily: 'Roboto-Bold'
-    },
-    ios: {
-        fontFamily: 'System',
-        fontWeight: '700'
-    }
+  android: {
+    fontFamily: 'Montserrat-Bold',
+  },
+  ios: {
+    fontFamily: 'Montserrat-Bold',
+  },
+});
+
+export const EXTRA_BOLD = Platform.select({
+  android: {
+    fontFamily: 'Montserrat-ExtraBold',
+  },
+  ios: {
+    fontFamily: 'Montserrat-ExtraBold',
+  },
 });

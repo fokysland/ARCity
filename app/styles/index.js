@@ -1,9 +1,5 @@
-import * as Colors from './colors.js';
-import * as Helpers from './helpers.js';
-import * as Typography from './typography.js';
+import * as Helpers from './helpers';
+import * as Colors from './colors';
+import * as Typography from './typography';
 
-export {
-    Colors,
-    Helpers,
-    Typography
-}
+export {Helpers, Colors, Typography};

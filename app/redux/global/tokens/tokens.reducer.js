@@ -20,9 +20,9 @@ const handlers = {
   DEFAULT: state => state,
 };
 
-const tokensReducers = (state = defaultState, action) => {
+const tokensReducer = (state = defaultState, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
   return handler(state, action.payload);
 };
 
-export default tokensReducers;
+export default tokensReducer;

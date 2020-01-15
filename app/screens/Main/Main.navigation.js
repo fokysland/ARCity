@@ -4,6 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 // Screen navigators
 import MapNavigation from './screens/Map/Map.navigation';
+import AuthNavigation from '../Auth/Auth.navigation';
+import RegistrationNavigation from '../Registration/Registration.navigation.js';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -23,6 +25,14 @@ const MainNavigation = () => {
             <Icon name="add-location" size={20} color={color} />
           ),
         }}
+      />
+      <Screen 
+      name="Login" 
+      component={AuthNavigation}
+      />
+      <Screen 
+      name="Reg" 
+      component={RegistrationNavigation}
       />
     </Navigator>
   );

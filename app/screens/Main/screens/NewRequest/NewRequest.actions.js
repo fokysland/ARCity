@@ -26,4 +26,13 @@ export const postRejected = () => ({
   type: POST_REJECTED,
 });
 
-export const postRequest = () => async dispatch => {};
+export const postRequest = (name, type, about) => async dispatch => {
+  const res = postRequest(name, type, about);
+  if (!res.ok) {
+    dispatch(postRejected());
+    return Promise.reject();
+  } else {
+    dispatch(postFulfilled());
+    return Promise.resolve();
+  }
+};

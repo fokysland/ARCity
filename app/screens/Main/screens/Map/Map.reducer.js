@@ -14,7 +14,7 @@ const defaultState = {
   like: false,
   friend: false,
   range: 5,
-  types: {
+  categories: {
     bench: true,
     lamp: true,
     urn: true,
@@ -39,22 +39,22 @@ const handlers = {
   }),
   [SET_LIKE]: state => ({
     ...state,
-    like: !state.main.map.like,
+    like: !state.like,
   }),
   [SET_FRIEND]: state => ({
     ...state,
-    friend: !state.main.map.friend,
+    friend: !state.friend,
   }),
   [SET_CATEGORY]: (state, category) => ({
     ...state,
-    types: {
-      ...state.main.map.types,
-      [category]: !state.main.map.types[category],
+    categories: {
+      ...state.categories,
+      [category]: !state.categories[category],
     },
   }),
   [SET_OPENED]: state => ({
     ...state,
-    opened: !state.main.map.opened,
+    opened: !state.opened,
   }),
   DEFAULT: state => state,
 };

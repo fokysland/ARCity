@@ -14,19 +14,9 @@ const loginStyles = StyleSheet.create({
     fontSize: 44,
     marginTop: 22,
   },
-  LogoContainer: {
+  logoContainer: {
     marginLeft: 'auto',
     marginRight: 'auto',
-  },
-  AuthInputs: {
-    height: Helpers.verticalScale(39),
-    minWidth: '56%',
-    borderColor: Colors.primaryColor,
-    borderWidth: 1,
-    marginBottom: 20,
-    borderLeftWidth: 0,
-    borderRightWidth: 0,
-    borderTopWidth: 0,
   },
   authContainer: {
     marginLeft: 'auto',

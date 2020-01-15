@@ -10,7 +10,7 @@ import {
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import AuthField from '../../components/AuthField.js';
+import AuthField from '../../components/AuthField/AuthField.js';
 
 import loginStyles from './Login.styles.js';
 
@@ -25,7 +25,7 @@ const LoginScreen = () => {
         style={loginStyles.awareView}
         contentContainerStyle={loginStyles.awareChild}>
         <View>
-          <View style={loginStyles.LogoContainer}>
+          <View style={loginStyles.logoContainer}>
             <Image source={logo} style={loginStyles.arcityIcon} />
             <Text style={loginStyles.arcityLabel}>ARCity</Text>
           </View>
@@ -44,7 +44,7 @@ const LoginScreen = () => {
           </View>
           <View style={loginStyles.gotoRegContainer}>
             <TouchableOpacity>
-              <Text style={loginStyles.gotoReg}>Не зарегестрированы?</Text>
+              <Text style={loginStyles.gotoReg}>Не зарегистрированы?</Text>
             </TouchableOpacity>
           </View>
         </View>

@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 
 import {store} from '_redux/store';
-import connect from 'react-redux';
+import {connect} from 'react-redux';
 import {setFriend, setLike, setRange, setCategory} from '../../Map.actions';
 
 import {CheckBox} from 'react-native-elements';

@@ -7,9 +7,6 @@ const styles = StyleSheet.create({
     fontSize: Helpers.scaleSize(size),
     ...(bold ? Typography.FONT_SEMIBOLD : Typography.FONT_MEDIUM),
   }),
-  align: ({left, right, center}) => ({
-    textAlign: left ? 'left' : right ? 'right' : center ? 'center' : 'left',
-  }),
 });
 
 export default styles;

@@ -16,7 +16,7 @@ const background = require('_assets/images/nycBackground.png');
 
 const RegistrationScreen = () => {
   return (
-    <ImageBackground source={background} style={registrationStyles.nycBack}>
+    <ImageBackground source={background} style={registrationStyles.background}>
       <KeyboardAwareScrollView
         enableOnAndroid={true}
         style={registrationStyles.awareView}
@@ -27,16 +27,15 @@ const RegistrationScreen = () => {
           </View>
 
           <View style={registrationStyles.authContainer}>
-            <View>
-              <TouchableWithoutFeedback>
-                <View style={registrationStyles.uploadAvatar}>
-                  <Text style={registrationStyles.addPhotoText}>Фото</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
+            <TouchableWithoutFeedback>
+              <View style={registrationStyles.uploadAvatar}>
+                <Text style={registrationStyles.addPhotoText}>Фото</Text>
+              </View>
+            </TouchableWithoutFeedback>
 
             <AuthField placeholder="Email" />
             <AuthField placeholder="Имя" />
+            <AuthField placeholder="Фамилия" />
             <AuthField placeholder="Пароль" />
             <AuthField placeholder="Повторите пароль" />
           </View>
@@ -44,11 +43,6 @@ const RegistrationScreen = () => {
           <View style={registrationStyles.signupButtonContainer}>
             <TouchableOpacity style={registrationStyles.signupButton}>
               <Text style={registrationStyles.signupText}>SIGN UP</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={registrationStyles.gotoAuthContainer}>
-            <TouchableOpacity>
-              <Text style={registrationStyles.gotoAuth}>Уже есть аккаунт?</Text>
             </TouchableOpacity>
           </View>
         </View>

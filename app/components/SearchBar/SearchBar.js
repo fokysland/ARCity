@@ -30,6 +30,7 @@ const SearchBar = ({
           onChange={onChange}
           value={value}
           placeholder={placeholder}
+          scrollEnabled={false}
           placeholderTextColor={placeholderTextColor}
         />
         {rightChild}

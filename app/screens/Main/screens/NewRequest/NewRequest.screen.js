@@ -1,13 +1,18 @@
 import React from 'react';
 
-import {View} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
+
+import {Header, DropDown} from '_components/index';
 
 import NewRequestStyles from './NewRequest.styles';
 
 const NewRequestScreen = () => {
   return (
     <View>
-      <Image />
+      <Image
+        width={NewRequestStyles.image.width}
+        height={NewRequestStyles.image.height}
+      />
       <Header text="Как меня назовешь?" bold />
       <View style={NewRequestStyles.group}>
         <Header text="Геопозиция" />
@@ -17,8 +22,15 @@ const NewRequestScreen = () => {
         <DropDown />
       </View>
       <View style={NewRequestStyles.description}>
-
+        <View style={NewRequestStyles.descriptionTitle}>
+          <View style={[NewRequestStyles.line, NewRequestStyles.left]} />
+          <Header size={11} style={NewRequestStyles.descriptionHeader} />
+          <View style={[NewRequestStyles.line, NewRequestStyles.right]} />
+        </View>
       </View>
+      <TouchableOpacity style={NewRequestStyles.button}>
+        Опубликуй меня!
+      </TouchableOpacity>
     </View>
   );
 };

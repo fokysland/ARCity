@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start",
+    "start": "npx react-native start",
     "android-debug": "react-native run-android && exit 0",
     "android-debug-clean": "yarn clean-android && yarn android-debug",
     "android-alpha": "cd android && ./gradlew assembleReleaseAlpha && cd .. && yarn android-install-alpha",

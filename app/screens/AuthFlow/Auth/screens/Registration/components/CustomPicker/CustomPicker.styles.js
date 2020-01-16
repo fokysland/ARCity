@@ -3,10 +3,11 @@ import {StyleSheet} from 'react-native';
 import {Helpers, Colors, Typography} from '_styles/index';
 
 const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  picker: {
+    width: Helpers.scaleSize(210),
+    height: Helpers.scaleSize(210),
+    borderRadius: 15,
+    resizeMode: 'cover',
   },
 });
 

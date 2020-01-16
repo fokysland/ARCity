@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Image, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 
 import {Header, DropDown} from '_components/index';
 
@@ -9,10 +9,6 @@ import NewRequestStyles from './NewRequest.styles';
 const NewRequestScreen = () => {
   return (
     <View>
-      <Image
-        width={NewRequestStyles.image.width}
-        height={NewRequestStyles.image.height}
-      />
       <Header text="Как меня назовешь?" bold />
       <View style={NewRequestStyles.group}>
         <Header text="Геопозиция" />

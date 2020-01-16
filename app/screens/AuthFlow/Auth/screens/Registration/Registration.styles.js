@@ -58,6 +58,9 @@ const registrationStyles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  firstInput: {
+    marginTop: Helpers.verticalScale(30),
+  },
 });
 
 export default registrationStyles;

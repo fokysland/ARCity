@@ -10,17 +10,20 @@ import ImagePickerStyles from './ImagePicker.styles';
 const ImagePicker = ({containerStyle, text = 'Фото', textStyle, setUri}) => {
   const handleClick = async () => {
     const image = await Picker.openPicker({
-      width: 210,
-      height: 210,
       cropping: true,
+      width: 1200,
+      height: 1200,
+      cropperCircleOverlay: true,
+      freeStyleCropEnabled: false,
+      showCropGuidelines: false,
     });
-    setUri({uri: image.path});
+    setUri({uri: image.path, ...image});
   };
   return (
     <View
       style={[ImagePickerStyles.container, containerStyle]}
       onTouchStart={handleClick}>
-      <Header text={text} primaryColor size={24} style={textStyle} />
+      <Header text={text} primaryColor size={14} style={textStyle} />
     </View>
   );
 };

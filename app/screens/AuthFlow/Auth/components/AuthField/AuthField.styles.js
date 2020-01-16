@@ -4,10 +4,10 @@ import {Helpers, Colors, Typography} from '_styles/index';
 
 const style = StyleSheet.create({
   authInputs: {
-    height: Helpers.verticalScale(50),
+    height: Helpers.verticalScale(32.5),
     color: Colors.primaryColor,
     borderColor: Colors.primaryColor,
-    marginBottom: Helpers.verticalScale(20),
+    marginBottom: Helpers.verticalScale(25),
     borderBottomWidth: 1,
     width: '100%',
     padding: 0,

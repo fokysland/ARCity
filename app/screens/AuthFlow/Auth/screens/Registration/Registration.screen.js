@@ -16,7 +16,7 @@ import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import {AuthField} from '_screens/AuthFlow/Auth/components';
-import {CustomPicker} from './components';
+import {CustomPicker} from './components/index';
 
 import registrationStyles from './Registration.styles';
 
@@ -44,6 +44,7 @@ const RegistrationScreen = ({
           <AuthField
             placeholder="Email"
             value={email}
+            style={registrationStyles.firstInput}
             onChange={newEmail => store.dispatch(setEmail(newEmail))}
           />
           <AuthField
@@ -80,7 +81,6 @@ const RegistrationScreen = ({
                 surname,
                 email,
                 password,
-                repeatedPassword,
                 uri,
               }),
             )

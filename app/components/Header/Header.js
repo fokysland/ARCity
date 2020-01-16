@@ -9,13 +9,15 @@ const Header = ({
   style = {},
   bold = false,
   size = 16,
-  primaryColor = true,
+  primaryColor = false,
   additionalColor = false,
   secondaryColor = false,
   attractionColor = false,
+  onPress,
 }) => {
   return (
     <Text
+      onPress={onPress}
       style={{
         ...HeaderStyles.font(bold, size),
         ...HeaderStyles.color({

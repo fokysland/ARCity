@@ -9,5 +9,16 @@ export const tokens = (email, password) => {
 };
 
 export const registerUser = (uri, email, name, surname, password) => {
-  return post('/register', {email, name, surname, password});
+  const form = new FormData();
+  form.append('requestData[email]', email);
+  form.append('requestData[name]', name);
+  form.append('requestData[surname]', surname);
+  form.append('requestData[password]', password);
+  form.append('requestData[image]', {
+    uri: uri.uri,
+    name: uri.filename,
+    type: 'image/jpeg',
+  });
+
+  return post('/register', form, true);
 };

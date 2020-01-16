@@ -1,1 +1,1 @@
-export {default as CustomPicker} from './CustomPicker';
+export {default as CustomPicker} from './CustomPicker/CustomPicker';

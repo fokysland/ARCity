@@ -11,16 +11,21 @@ import {ImagePicker, Image} from '_components/index';
 import CustomPickerStyles from './CustomPicker.styles';
 
 const CustomPicker = ({uri}) => {
+  console.log(uri);
   return (
     <View style={CustomPickerStyles.container}>
-      {!uri ? (
+      {!uri.uri ? (
         <ImagePicker
           containerStyle={CustomPickerStyles.picker}
           setUri={newUri => store.dispatch(setUri(newUri))}
           text="Фото"
         />
       ) : (
-        <Image source={uri} style={CustomPickerStyles.picker} />
+        <Image
+          source={uri}
+          style={CustomPickerStyles.picker}
+          onPress={() => store.dispatch(setUri({}))}
+        />
       )}
     </View>
   );

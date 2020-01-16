@@ -13,7 +13,7 @@ const defaultState = {
   surname: '',
   password: '',
   repeatedPassword: '',
-  uri: '',
+  uri: {},
 };
 
 const handlers = {

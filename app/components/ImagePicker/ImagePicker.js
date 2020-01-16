@@ -1,28 +1,20 @@
 import React from 'react';
 
 import {View} from 'react-native';
-import  from 'react-native-image-picker';
+import Picker from 'react-native-image-crop-picker';
 
 import {Header} from '_components/index';
 
 import ImagePickerStyles from './ImagePicker.styles';
 
-const getOptions = title => ({
-  title,
-  storageOptions: {
-    skipBackup: true,
-    path: 'images/arcity',
-  },
-});
-
 const ImagePicker = ({containerStyle, text = 'Фото', textStyle, setUri}) => {
-  const handleClick = () => {
-    BasicImagePicker.showImagePicker(getOptions('hey'), res => {
-      if (res.uri) {
-        const {uri} = res;
-        setUri(uri);
-      }
+  const handleClick = async () => {
+    const image = await Picker.openPicker({
+      width: 210,
+      height: 210,
+      cropping: true,
     });
+    setUri({uri: image.path});
   };
   return (
     <View

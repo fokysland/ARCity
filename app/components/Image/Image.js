@@ -1,14 +1,17 @@
 import React from 'react';
 
-import {View, Image as BasicImage} from 'react-native';
+import {Image as BasicImage, TouchableOpacity} from 'react-native';
 
 import ImageStyles from './Image.styles';
 
-const Image = ({source, style}) => {
+const Image = ({source, style, onPress}) => {
   return (
-    <View style={{...ImageStyles.container, ...style}}>
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.9}
+      style={{...ImageStyles.container, ...style}}>
       <BasicImage source={source} />
-    </View>
+    </TouchableOpacity>
   );
 };
 

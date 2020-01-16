@@ -75,7 +75,14 @@ const RegistrationScreen = ({
           activeOpacity={0.8}
           onPress={() =>
             store.dispatch(
-              register({name, surname, email, password, repeatedPassword, uri}),
+              register({
+                name,
+                surname,
+                email,
+                password,
+                repeatedPassword,
+                uri,
+              }),
             )
           }>
           <Text style={registrationStyles.signupText}>SIGN UP</Text>

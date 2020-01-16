@@ -26,14 +26,8 @@ const MainNavigation = () => {
           ),
         }}
       />
-      <Screen
-      name="Login"
-      component={LoginNavigation}
-      />
-      <Screen
-      name="Reg"
-      component={RegistrationNavigation}
-      />
+      <Screen name="Login" component={LoginNavigation} />
+      <Screen name="Reg" component={RegistrationNavigation} />
     </Navigator>
   );
 };

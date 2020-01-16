@@ -1,5 +1,9 @@
 import React from 'react';
 
+import {store} from '_redux/store';
+import {connect} from 'react-redux';
+import {setEmail, setPassword, login} from './Login.actions';
+
 import {
   View,
   Text,
@@ -10,19 +14,18 @@ import {
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import AuthField from '../../components/AuthField/AuthField.js';
+import {AuthField} from '_screens/AuthFlow/Auth/components';
 
-import loginStyles from './Login.styles.js';
+import loginStyles from './Login.styles';
 
 const logo = require('_assets/images/ARCity_logo.png');
 const background = require('_assets/images/nycBackground.png');
 
-const LoginScreen = () => {
+const LoginScreen = ({email, password}) => {
   return (
     <ImageBackground source={background} style={loginStyles.nycBack}>
       <KeyboardAwareScrollView
         enableOnAndroid={true}
-        style={loginStyles.awareView}
         contentContainerStyle={loginStyles.awareChild}>
         <View>
           <View style={loginStyles.logoContainer}>
@@ -31,26 +34,37 @@ const LoginScreen = () => {
           </View>
 
           <View style={loginStyles.authContainer}>
-            <AuthField placeholder="Email" />
-            <AuthField placeholder="Пароль" />
+            <AuthField
+              placeholder="Email"
+              value={email}
+              onChange={newEmail => store.dispatch(setEmail(newEmail))}
+            />
+            <AuthField
+              placeholder="Пароль"
+              value={password}
+              onChange={newPassword => store.dispatch(setPassword(newPassword))}
+            />
           </View>
 
-          <View style={loginStyles.loginButtonContainer}>
-            <TouchableOpacity
-              style={loginStyles.loginButton}
-              underlayColor="#000">
-              <Text style={loginStyles.loginText}>LOG IN</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={loginStyles.gotoRegContainer}>
-            <TouchableOpacity>
-              <Text style={loginStyles.gotoReg}>Не зарегистрированы?</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            style={loginStyles.loginButton}
+            underlayColor="#000"
+            activeOpacity={0.8}
+            onPress={() => store.dispatch(login(email, password))}>
+            <Text style={loginStyles.loginText}>LOG IN</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={loginStyles.gotoRegContainer}>
+            <Text style={loginStyles.gotoReg}>Не зарегистрированы?</Text>
+          </TouchableOpacity>
         </View>
       </KeyboardAwareScrollView>
     </ImageBackground>
   );
 };
 
-export default LoginScreen;
+const mapStateToProps = ({auth: {login: email, password}}) => ({
+  email,
+  password,
+});
+
+export default connect(mapStateToProps)(LoginScreen);

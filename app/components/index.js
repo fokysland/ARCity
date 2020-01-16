@@ -4,3 +4,4 @@ export {default as Header} from './Header/Header';
 export {default as SwitchButton} from './SwitchButton/SwitchButton';
 export {default as Image} from './Image/Image';
 export {default as Textarea} from './Textarea/Textarea';
+export {default as ImagePicker} from './ImagePicker/ImagePicker';

@@ -12,8 +12,8 @@ export const saveRefreshToken = token => ({
   payload: token,
 });
 
-const GET_TOKENS_REJECTED = 'GET_TOKENS_REJECTED';
-const getTokensRejected = () => ({
+export const GET_TOKENS_REJECTED = 'GET_TOKENS_REJECTED';
+export const getTokensRejected = () => ({
   type: GET_TOKENS_REJECTED,
 });
 

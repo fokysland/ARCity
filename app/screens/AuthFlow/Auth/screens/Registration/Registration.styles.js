@@ -13,9 +13,12 @@ const registrationStyles = StyleSheet.create({
   },
   authContainer: {
     alignSelf: 'center',
+    alignItems: 'center',
+    width: Helpers.scaleSize(210),
     marginTop: Helpers.verticalScale(20),
   },
   signupButton: {
+    marginTop: Helpers.verticalScale(16),
     alignSelf: 'center',
     backgroundColor: Colors.primaryColor,
     borderRadius: 50,
@@ -28,9 +31,6 @@ const registrationStyles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: Helpers.scaleSize(18),
-  },
-  signupButtonContainer: {
-    marginTop: Helpers.verticalScale(16),
   },
   gotoAuth: {
     ...Typography.FONT_MEDIUM,

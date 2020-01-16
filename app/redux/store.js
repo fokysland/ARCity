@@ -8,6 +8,7 @@ import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 import globalReducer from './global/reducers';
 
 import mainReducer from '_screens/Main/Main.reducer';
+import authReducer from '_screens/AuthFlow/AuthFlow.reducer';
 
 const persistConfig = {
   key: 'root',
@@ -18,6 +19,7 @@ const persistConfig = {
 const combinedReducers = combineReducers({
   global: globalReducer,
   main: mainReducer,
+  auth: authReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);

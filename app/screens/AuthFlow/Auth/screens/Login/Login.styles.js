@@ -1,64 +1,55 @@
 import {StyleSheet} from 'react-native';
 import {Helpers, Colors, Typography} from '_styles/index';
+import {scaleSize} from '_styles/helpers';
 
 const loginStyles = StyleSheet.create({
   arcityIcon: {
-    width: Helpers.moderateScale(47),
-    height: Helpers.moderateScale(58),
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    width: Helpers.scaleSize(47),
+    height: Helpers.verticalScale(58),
+    alignSelf: 'center',
   },
   arcityLabel: {
     color: Colors.primaryColor,
     fontFamily: 'Montserrat-ExtraBold',
-    fontSize: 44,
-    marginTop: 22,
+    fontSize: Helpers.scaleSize(44),
+    marginTop: Helpers.verticalScale(20),
   },
   logoContainer: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    alignSelf: 'center',
   },
   authContainer: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: 19,
+    alignSelf: 'center',
+    marginTop: Helpers.verticalScale(20),
+    width: scaleSize(210),
   },
   loginButton: {
+    marginTop: Helpers.verticalScale(45),
     backgroundColor: Colors.primaryColor,
+    justifyContent: 'center',
+    alignSelf: 'center',
     borderRadius: 50,
     minWidth: '56%',
     width: '56%',
     height: Helpers.verticalScale(44),
-    marginLeft: 'auto',
-    marginRight: 'auto',
   },
   loginText: {
+    ...Typography.FONT_MEDIUM,
     color: '#fff',
     textAlign: 'center',
-    marginTop: 'auto',
-    marginBottom: 'auto',
-    fontSize: 18,
-    fontFamily: 'Montserrat-Medium',
-  },
-  loginButtonContainer: {
-    marginTop: 46,
+    fontSize: scaleSize(18),
   },
   gotoReg: {
-    color: Colors.primaryColor,
     fontFamily: 'Montserrat-Medium',
-    fontSize: 14,
+    color: Colors.primaryColor,
+    fontSize: scaleSize(14),
   },
   gotoRegContainer: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: 18,
+    marginTop: scaleSize(20),
+    alignSelf: 'center',
   },
   nycBack: {
     width: '100%',
     height: '100%',
-  },
-  awareView: {
-    flex: 1,
   },
   awareChild: {
     marginTop: 'auto',

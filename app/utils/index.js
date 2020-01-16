@@ -1,2 +1,3 @@
 import * as Categories from './categoties';
-export {Categories};
+import * as Text from './text';
+export {Categories, Text};

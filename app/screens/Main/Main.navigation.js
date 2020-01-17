@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // Screen navigators
 import MapNavigation from './screens/Map/Map.navigation';
 import FeedNavigation from './screens/Feed/Feed.navigation';
+import NewRequestNavigation from './screens/NewRequest/NewRequest.navigation';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -14,7 +15,7 @@ const MainNavigation = () => {
   const {Navigator, Screen} = createBottomTabNavigator();
   return (
     <Navigator
-      initialRouteName="map"
+      initialRouteName="CreateReq"
       tabBarOptions={{activeTintColor: primaryColor}}>
       <Screen
         name="map"
@@ -26,6 +27,7 @@ const MainNavigation = () => {
         }}
       />
       <Screen name="Feed" component={FeedNavigation} />
+      <Screen name="CreateReq" component={NewRequestNavigation} />
     </Navigator>
   );
 };

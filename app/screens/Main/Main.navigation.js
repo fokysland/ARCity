@@ -5,8 +5,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // Screen navigators
 import MapNavigation from './screens/Map/Map.navigation';
 import FeedNavigation from './screens/Feed/Feed.navigation';
-import LoginNavigation from '../AuthFlow/Auth/screens/Login/Login.navigation';
-import RegistrationNavigation from '../AuthFlow/Auth/screens/Registration/Registration.navigation.js';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -27,8 +25,6 @@ const MainNavigation = () => {
           ),
         }}
       />
-      <Screen name="Login" component={LoginNavigation} />
-      <Screen name="Reg" component={RegistrationNavigation} />
       <Screen name="Feed" component={FeedNavigation} />
     </Navigator>
   );

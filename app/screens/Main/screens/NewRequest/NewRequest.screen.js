@@ -4,7 +4,7 @@ import {View, TouchableOpacity, Text} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import {Header, DropDown, CustomPicker, Shadow} from '_components/index';
+import {Header, DropDown, CustomPicker} from '_components/index';
 import {Location} from './components';
 
 import {Colors} from '_styles/index';

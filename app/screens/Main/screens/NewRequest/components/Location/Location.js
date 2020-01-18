@@ -9,7 +9,7 @@ import LocationStyles from './Location.styles';
 const googleMapsIcon = require('_assets/images/GMaps.png');
 
 const Location = ({setLocation, location}) => {
-  const handleClick = async () => {};
+  const handleClick = () => {};
   return (
     <View style={LocationStyles.container} onTouchEnd={handleClick}>
       <Header text="Геопозиция" size={14} style={LocationStyles.text} />

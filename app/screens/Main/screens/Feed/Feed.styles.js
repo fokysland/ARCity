@@ -11,6 +11,9 @@ const style = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     borderWidth: 1,
   },
+  header: {
+    ...Typography.FONT_SEMIBOLD,
+  },
 });
 
 export default style;

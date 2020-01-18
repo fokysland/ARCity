@@ -3,8 +3,9 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 // Screen navigators
-import MapNavigation from '../screens/Map/Map.navigation';
 import FeedNavigation from '../screens/Feed/Feed.navigation';
+import MapNavigation from '../screens/Map/Map.navigation';
+import ChatsNavigation from '_screens/Main/screens/Chats/Chats.navigation';
 
 import BottomNavigatorStyles from './BottomNavigator.styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -15,8 +16,9 @@ const {Navigator, Screen} = createBottomTabNavigator();
 const BottomNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Map"
+      initialRouteName="Feed"
       tabBarOptions={{activeTintColor: primaryColor}}>
+      <Screen name="Feed" component={FeedNavigation} />
       <Screen
         name="Map"
         component={MapNavigation}
@@ -26,7 +28,7 @@ const BottomNavigator = () => {
           ),
         }}
       />
-      <Screen name="Feed" component={FeedNavigation} />
+      <Screen name="Chats" component={ChatsNavigation} />
     </Navigator>
   );
 };

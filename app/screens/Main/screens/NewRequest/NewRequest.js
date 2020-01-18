@@ -21,7 +21,7 @@ const angleIcon = (
   />
 );
 
-const NewRequestScreen = ({uri, category, position}) => {
+const NewRequest = ({uri, category, position}) => {
   return (
     <KeyboardAwareScrollView enableOnAndroid={true}>
       <CustomPicker
@@ -61,4 +61,4 @@ const NewRequestScreen = ({uri, category, position}) => {
   );
 };
 
-export default NewRequestScreen;
+export default NewRequest;

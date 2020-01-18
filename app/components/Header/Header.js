@@ -13,9 +13,9 @@ const Header = ({
   additionalColor = false,
   secondaryColor = false,
   attractionColor = false,
-  numberOfLines,
   black = true,
   onPress,
+  ...props
 }) => {
   return (
     <Text
@@ -31,7 +31,7 @@ const Header = ({
         }),
         ...style,
       }}
-      numberOfLines={numberOfLines}>
+      {...props}>
       {text}
     </Text>
   );

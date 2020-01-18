@@ -13,7 +13,7 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: Colors.articleBackground,
-    marginVertical: Helpers.verticalScale(10),
+    marginVertical: Helpers.verticalScale(5),
   },
   left: {
     height: Helpers.verticalScale(190),

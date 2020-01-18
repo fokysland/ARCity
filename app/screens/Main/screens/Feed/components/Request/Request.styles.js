@@ -10,7 +10,7 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.articleBackground,
-    marginVertical: Helpers.verticalScale(10),
+    marginVertical: Helpers.verticalScale(5),
     borderRadius: 10,
   },
   wrapper: {

@@ -42,6 +42,7 @@ const style = StyleSheet.create({
   link: {
     position: 'absolute',
     bottom: 0,
+    left: Helpers.scaleSize(5),
     ...Typography.FONT_REGULAR,
   },
 });

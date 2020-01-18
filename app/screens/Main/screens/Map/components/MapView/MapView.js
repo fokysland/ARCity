@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import BasicMapView, {Marker} from 'react-native-maps';
 
 import MapViewStyles from './MapView.styles';
+import {mapConfig} from './/Map.config';
 
 const MapView = ({requests}) => {
   useEffect(() => {
@@ -14,7 +15,11 @@ const MapView = ({requests}) => {
   }, []);
 
   return (
-    <BasicMapView showsCompass={false} style={MapViewStyles.map}>
+    <BasicMapView
+      showsCompass={false}
+      style={MapViewStyles.map}
+      showsUserLocation={true}
+      customMapStyle={mapConfig}>
       {requests.map(({geolocation: {longitude, latitude}}) => (
         <Marker
           coordinate={{longitude, latitude}}

@@ -6,6 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MapNavigation from './screens/Map/Map.navigation';
 import FeedNavigation from './screens/Feed/Feed.navigation';
 import NewRequestNavigation from './screens/NewRequest/NewRequest.navigation';
+import RegistrationNavigation from '_screens/AuthFlow/Auth/screens/Registration/Registration.navigation';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 

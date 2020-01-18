@@ -7,6 +7,10 @@ const style = StyleSheet.create({
     height: '100%',
     alignSelf: 'center',
   },
+  list: {
+    ...StyleSheet.absoluteFillObject,
+    borderWidth: 1,
+  },
 });
 
 export default style;

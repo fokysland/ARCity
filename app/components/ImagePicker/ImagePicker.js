@@ -22,7 +22,7 @@ const ImagePicker = ({containerStyle, text = 'Фото', textStyle, setUri}) => 
   return (
     <View
       style={[ImagePickerStyles.container, containerStyle]}
-      onTouchStart={handleClick}>
+      onTouchEnd={handleClick}>
       <Header text={text} primaryColor size={14} style={textStyle} />
     </View>
   );

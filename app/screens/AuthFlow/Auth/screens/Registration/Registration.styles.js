@@ -11,6 +11,9 @@ const registrationStyles = StyleSheet.create({
   LogoContainer: {
     alignSelf: 'center',
   },
+  picker: {
+    backgroundColor: 'rgba(255, 255, 255, 0.4);',
+  },
   authContainer: {
     alignSelf: 'center',
     alignItems: 'center',

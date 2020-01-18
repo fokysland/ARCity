@@ -9,6 +9,7 @@ import {
   setPassword,
   setRepeatedPassword,
   setSurname,
+  setUri,
 } from './Registration.actions';
 
 import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
@@ -16,7 +17,7 @@ import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import {AuthField} from '_screens/AuthFlow/Auth/components';
-import {CustomPicker} from './components/index';
+import {CustomPicker} from '_components/index';
 
 import registrationStyles from './Registration.styles';
 
@@ -40,7 +41,13 @@ const RegistrationScreen = ({
         </View>
 
         <View style={registrationStyles.authContainer}>
-          <CustomPicker />
+          <CustomPicker
+            uri={uri}
+            setUri={newUri => store.dispatch(setUri(newUri))}
+            pickerStyle={registrationStyles.picker}
+            height={210}
+            width={210}
+          />
           <AuthField
             placeholder="Email"
             value={email}

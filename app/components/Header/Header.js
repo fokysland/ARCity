@@ -13,6 +13,7 @@ const Header = ({
   additionalColor = false,
   secondaryColor = false,
   attractionColor = false,
+  black = true,
   onPress,
 }) => {
   return (
@@ -25,6 +26,7 @@ const Header = ({
           additionalColor,
           secondaryColor,
           attractionColor,
+          black,
         }),
         ...style,
       }}>

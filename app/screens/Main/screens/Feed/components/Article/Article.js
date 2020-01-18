@@ -20,15 +20,13 @@ const Article = ({onPress, title, text, photos}) => {
         <>
           <Image
             source={{
-              uri:
-                'https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+              uri: photos[0],
             }}
             style={ArticleStyles.photo}
           />
           <Image
             source={{
-              uri:
-                'https://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+              uri: photos[1],
             }}
             style={ArticleStyles.photo}
           />
@@ -48,7 +46,7 @@ const Article = ({onPress, title, text, photos}) => {
           size={18}
           style={ArticleStyles.title}
         />
-        <Text style={ArticleStyles.text} numberOfLines={6}>
+        <Text style={ArticleStyles.text} numberOfLines={5}>
           {text}
         </Text>
         <Header

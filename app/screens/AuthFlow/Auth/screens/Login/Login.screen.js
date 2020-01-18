@@ -36,11 +36,13 @@ const LoginScreen = ({email, password}) => {
           <View style={loginStyles.authContainer}>
             <AuthField
               placeholder="Email"
+              style={loginStyles.input}
               value={email}
               onChange={newEmail => store.dispatch(setEmail(newEmail))}
             />
             <AuthField
               placeholder="Пароль"
+              style={loginStyles.input}
               value={password}
               onChange={newPassword => store.dispatch(setPassword(newPassword))}
             />

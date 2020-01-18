@@ -4,7 +4,7 @@ import {getTextValue} from '_utils/text';
 export const SET_URI = 'SET_URI';
 export const setUri = uri => ({
   type: SET_URI,
-  payload: uri,
+  payload: uri.uri,
 });
 
 export const SET_EMAIL = 'SET_EMAIL';

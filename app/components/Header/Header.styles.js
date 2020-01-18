@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     additionalColor,
     secondaryColor,
     attractionColor,
+    black,
   }) => ({
     color: primaryColor
       ? Colors.primaryColor
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
       ? Colors.secondaryColor
       : attractionColor
       ? Colors.attractionColor
-      : Colors.primaryColor,
+      : Colors.designBlack,
   }),
 });
 

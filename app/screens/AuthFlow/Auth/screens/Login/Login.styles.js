@@ -1,6 +1,5 @@
 import {StyleSheet} from 'react-native';
 import {Helpers, Colors, Typography} from '_styles/index';
-import {scaleSize} from '_styles/helpers';
 
 const loginStyles = StyleSheet.create({
   arcityIcon: {
@@ -16,14 +15,17 @@ const loginStyles = StyleSheet.create({
   },
   logoContainer: {
     alignSelf: 'center',
+    marginBottom: Helpers.verticalScale(30),
   },
   authContainer: {
     alignSelf: 'center',
-    marginTop: Helpers.verticalScale(20),
-    width: scaleSize(210),
+    marginBottom: Helpers.verticalScale(50),
+    width: Helpers.scaleSize(210),
+  },
+  input: {
+    marginBottom: Helpers.verticalScale(40),
   },
   loginButton: {
-    marginTop: Helpers.verticalScale(45),
     backgroundColor: Colors.primaryColor,
     justifyContent: 'center',
     alignSelf: 'center',
@@ -36,15 +38,15 @@ const loginStyles = StyleSheet.create({
     ...Typography.FONT_MEDIUM,
     color: '#fff',
     textAlign: 'center',
-    fontSize: scaleSize(18),
+    fontSize: Helpers.scaleSize(18),
   },
   gotoReg: {
     fontFamily: 'Montserrat-Medium',
     color: Colors.primaryColor,
-    fontSize: scaleSize(14),
+    fontSize: Helpers.scaleSize(14),
   },
   gotoRegContainer: {
-    marginTop: scaleSize(20),
+    marginTop: Helpers.scaleSize(20),
     alignSelf: 'center',
   },
   nycBack: {

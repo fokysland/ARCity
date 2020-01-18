@@ -11,6 +11,9 @@ const registrationStyles = StyleSheet.create({
   LogoContainer: {
     alignSelf: 'center',
   },
+  picker: {
+    backgroundColor: 'rgba(255, 255, 255, 0.4);',
+  },
   authContainer: {
     alignSelf: 'center',
     alignItems: 'center',
@@ -57,6 +60,9 @@ const registrationStyles = StyleSheet.create({
   background: {
     width: '100%',
     height: '100%',
+  },
+  firstInput: {
+    marginTop: Helpers.verticalScale(30),
   },
 });
 

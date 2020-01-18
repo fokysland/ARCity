@@ -3,10 +3,10 @@ import {TextInput} from 'react-native';
 
 import AuthFieldStyles from './AuthField.styles';
 
-const AuthField = ({placeholder, onChange, value}) => {
+const AuthField = ({placeholder, onChange, value, style}) => {
   return (
     <TextInput
-      style={AuthFieldStyles.authInputs}
+      style={[AuthFieldStyles.authInputs, style]}
       placeholder={placeholder}
       placeholderTextColor={AuthFieldStyles.placeholder.color}
       onChange={onChange}

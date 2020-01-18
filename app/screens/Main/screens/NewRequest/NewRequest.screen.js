@@ -1,81 +1,62 @@
 import React from 'react';
 
-import { View, Image, TouchableOpacity, Text } from 'react-native';
-import { Helpers, Colors } from '_styles/index';
+import {View, TouchableOpacity, Text} from 'react-native';
+import {TextInput} from 'react-native-gesture-handler';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import { Header, DropDown } from '_components/index';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {Header, DropDown, CustomPicker} from '_components/index';
+import {Location} from './components';
 
+import {Colors} from '_styles/index';
 import NewRequestStyles from './NewRequest.styles';
-import { TextInput } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-// 56.85814079033064,60.60611638567427
+const angleIcon = (
+  <Icon
+    name="angle-down"
+    size={30}
+    color={Colors.primaryColor}
+    style={NewRequestStyles.droplistOpener}
+  />
+);
 
-const showDropList = require('_assets/images/ShowDropList.png');
-const gmapsIcon = require('_assets/images/GMaps.png');
-const myIcon = <Icon name="angle-down" size={30} color={Colors.primaryColor} style={NewRequestStyles.droplistOpener} />;
-const NewRequestScreen = () => {
+const NewRequestScreen = ({uri, category, position}) => {
   return (
-    <KeyboardAwareScrollView
-      enableOnAndroid={true}>
+    <KeyboardAwareScrollView enableOnAndroid={true}>
+      <CustomPicker
+        width={300}
+        height={300}
+        text="Фото"
+        pickerStyle={NewRequestStyles.picker}
+      />
 
-      <View style={NewRequestStyles.mainContainer}>
-
-        <Image style={NewRequestStyles.image} />
-
-        <View style={NewRequestStyles.requestDescription}>
-          <TextInput placeholder="Как меня назовешь?"
-            placeholderTextColor="#000"
-            style={{ fontSize: 18 }}
-            value={<></>}
-            onChange={<></>} />
-          <View style={NewRequestStyles.group}>
-            <Header text="Геопозиция" size="14" style={{ color: '#000' }} />
-
-            <TouchableOpacity
-              style={{ selfAlign: "right" }}
-              underlayColor="#000"
-              activeOpacity={0.8}
-              onPress={() => (<></>)}>
-              <Image source={gmapsIcon} style={NewRequestStyles.gmapsIcon} />
-
-            </TouchableOpacity>
-          </View>
-          <View style={[NewRequestStyles.group, { marginTop: Helpers.verticalScale(5) }]}>
-            <Header text="Что я?" size="14" style={{ color: '#000' }} />
-            <TouchableOpacity style={{ selfAlign: "right" }}
-              underlayColor="#000"
-              activeOpacity={0.8}
-              onPress={() => (<></>)}>
-              {myIcon}
-            </TouchableOpacity>
-
-          </View>
-          <DropDown />
-          <View>
-            <TextInput
-              style={NewRequestStyles.descriptionTextInput}
-              placeholder="Расскажи обо мне немного больше"
-              value={<></>}
-              onChange={<></>} />
-            <TouchableOpacity
-              style={NewRequestStyles.sendRequest}
-              underlayColor="#000"
-              activeOpacity={0.8}
-              onPress={() => (<></>)}>
-              <Text style={NewRequestStyles.sendButtonText}>Опубликуй меня!</Text>
-            </TouchableOpacity>
-          </View>
+      <View style={NewRequestStyles.requestDescription}>
+        <TextInput
+          placeholder="Как меня назовешь?"
+          placeholderTextColor={NewRequestStyles.placeholder.color}
+          style={NewRequestStyles.nameInput}
+        />
+        <Location />
+        <View style={NewRequestStyles.group}>
+          <Header text="Что я?" size={14} style={NewRequestStyles.type} />
+          {angleIcon}
         </View>
-        <TouchableOpacity
-          style={NewRequestStyles.button}
-          underlayColor="#000"
-          activeOpacity={0.8}
-          onPress={() => (<></>)}></TouchableOpacity>
+        <DropDown />
+        <View>
+          <TextInput
+            style={NewRequestStyles.descriptionTextInput}
+            multiline={true}
+            placeholder="Расскажи обо мне немного больше"
+          />
+          <TouchableOpacity
+            style={NewRequestStyles.sendRequest}
+            underlayColor="#000"
+            activeOpacity={0.8}>
+            <Text style={NewRequestStyles.sendButtonText}>Опубликуй меня!</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-
     </KeyboardAwareScrollView>
   );
 };

@@ -6,7 +6,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MapNavigation from './screens/Map/Map.navigation';
 import LoginNavigation from '../AuthFlow/Auth/screens/Login/Login.navigation';
 import RegistrationNavigation from '../AuthFlow/Auth/screens/Registration/Registration.navigation.js';
-import NewRequest from './screens/NewRequest/NewRequest.screen'
+import NewRequest from './screens/NewRequest/NewRequest.screen';
+import ChatList from './screens/ChatList/ChatList.screen';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -30,6 +31,7 @@ const MainNavigation = () => {
       <Screen name="Login" component={LoginNavigation} />
       <Screen name="Reg" component={RegistrationNavigation} />
       <Screen name="CreateReq" component={NewRequest} />
+      <Screen name="ChatList" component={ChatList} />
     </Navigator>
   );
 };

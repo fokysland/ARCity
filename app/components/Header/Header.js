@@ -13,6 +13,7 @@ const Header = ({
   additionalColor = false,
   secondaryColor = false,
   attractionColor = false,
+  numberOfLines,
 }) => {
   return (
     <Text
@@ -25,7 +26,8 @@ const Header = ({
           attractionColor,
         }),
         ...style,
-      }}>
+      }}
+      numberOfLines={numberOfLines}>
       {text}
     </Text>
   );

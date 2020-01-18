@@ -9,8 +9,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import NewRequestStyles from './NewRequest.styles';
 import { TextInput } from 'react-native-gesture-handler';
 
-// Необходимо установить react-native-paper версии 1.0.1
-import { Toolbar, Provider as PaperProvider, ToolbarBackAction, ToolbarContent } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // 56.85814079033064,60.60611638567427
@@ -23,14 +21,6 @@ const NewRequestScreen = () => {
     <KeyboardAwareScrollView
       enableOnAndroid={true}>
 
-      <PaperProvider>
-        <Toolbar style={{ backgroundColor: "#fff" }}>
-          <ToolbarBackAction />
-          <ToolbarContent
-            title={<Header text="Создание заявки" />}
-          />
-        </Toolbar>
-      </PaperProvider>
       <View style={NewRequestStyles.mainContainer}>
 
         <Image style={NewRequestStyles.image} />

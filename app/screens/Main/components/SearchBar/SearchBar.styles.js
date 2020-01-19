@@ -4,7 +4,8 @@ import {Colors, Helpers, Typography} from '_styles/index';
 
 const styles = StyleSheet.create({
   searchBarContainer: {
-    marginTop: Helpers.verticalScale(55),
+    position: 'absolute',
+    top: Helpers.verticalScale(55),
     width: Helpers.scaleSize(330),
     alignSelf: 'center',
   },
@@ -12,14 +13,15 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   searchInput: {
-    ...Typography.FONT_BOLD,
+    ...Typography.FONT_MEDIUM,
+    height: Helpers.verticalScale(50),
     color: Colors.primaryColor,
     fontSize: Helpers.scaleFont(14),
     backgroundColor: Colors.secondaryColor,
     textAlignVertical: 'center',
   },
   searchInputContainer: {
-    height: Helpers.verticalScale(45),
+    height: Helpers.verticalScale(50),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,

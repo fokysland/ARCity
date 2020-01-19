@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 
+import {Keyboard} from 'react-native';
+
 import {store} from '_redux/store';
 import {fetchRequests} from '../../Map.actions';
 import {connect} from 'react-redux';
@@ -7,7 +9,7 @@ import {connect} from 'react-redux';
 import BasicMapView, {Marker} from 'react-native-maps';
 
 import MapViewStyles from './MapView.styles';
-import {mapConfig} from './/Map.config';
+import {mapConfig} from '../../../NewRequestPicker/Map.config';
 
 const MapView = ({requests}) => {
   useEffect(() => {
@@ -16,6 +18,7 @@ const MapView = ({requests}) => {
 
   return (
     <BasicMapView
+      onPress={() => Keyboard.dismiss()}
       showsCompass={false}
       style={MapViewStyles.map}
       showsUserLocation={true}

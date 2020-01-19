@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Image} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import {Header} from '_components/index';
 
 import {Categories, Text} from '_utils/index';
@@ -9,7 +9,10 @@ import RequestStyles from './Request.styles';
 
 const Request = ({onPress, photo, title, geolocation, type}) => {
   return (
-    <View style={RequestStyles.container} onTouchStart={onPress}>
+    <TouchableOpacity
+      style={RequestStyles.container}
+      onPress={onPress}
+      activeOpacity={0.7}>
       <View style={RequestStyles.wrapper}>
         <Image
           source={{
@@ -37,7 +40,7 @@ const Request = ({onPress, photo, title, geolocation, type}) => {
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

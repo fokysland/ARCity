@@ -1,10 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import {store} from '_redux/store';
-import {connect} from 'react-redux';
-import {setFriend, setLike, setRange, setCategory} from '../../Map.actions';
-
 import {CheckBox} from 'react-native-elements';
 import Slider from '@ptomasroos/react-native-multi-slider';
 
@@ -13,25 +9,27 @@ import {Header, SwitchButton} from '_components/index';
 import {Categories} from '_utils/index';
 
 import OptionsStyles from './Options.styles';
-import {primaryColor} from '_styles/colors';
 
-const Options = ({like, friend, range, categories}) => {
+const Options = ({
+  like,
+  friend,
+  range,
+  categories,
+  setFriend,
+  setLike,
+  setRange,
+  setCategory,
+}) => {
   return (
     <View style={OptionsStyles.container}>
       <Header size={14} text="Фильтр" style={OptionsStyles.header} bold />
       <View style={OptionsStyles.group}>
-        <SwitchButton
-          value={like}
-          onValueChange={() => store.dispatch(setLike())}
-        />
+        <SwitchButton value={like} onValueChange={setLike} />
         <Header size={12} text="Нравится другу" style={OptionsStyles.title} />
       </View>
 
       <View style={OptionsStyles.group}>
-        <SwitchButton
-          value={friend}
-          onValueChange={() => store.dispatch(setFriend())}
-        />
+        <SwitchButton value={friend} onValueChange={setLike} />
         <Header size={12} text="От друга" style={OptionsStyles.title} />
       </View>
 
@@ -39,7 +37,7 @@ const Options = ({like, friend, range, categories}) => {
         <Header size={12} text="Расстояние" />
         <Slider
           values={[range]}
-          onValuesChange={([value]) => store.dispatch(setRange(value))}
+          onValuesChange={setRange}
           min={1}
           max={10}
           step={0.5}
@@ -54,11 +52,11 @@ const Options = ({like, friend, range, categories}) => {
           <View
             style={OptionsStyles.option}
             key={type}
-            onTouchStart={() => store.dispatch(setCategory(type))}>
+            onTouchStart={setCategory}>
             <Header text={text} size={11} />
             <CheckBox
-              checkedColor={primaryColor}
-              uncheckedColor={primaryColor}
+              // checkedColor={primaryColor}
+              // uncheckedColor={primaryColor}
               checkedIcon="dot-circle-o"
               uncheckedIcon="circle-o"
               checked={categories[i]}
@@ -72,15 +70,4 @@ const Options = ({like, friend, range, categories}) => {
   );
 };
 
-const mapStateToProps = ({
-  main: {
-    map: {like, friend, range, categories},
-  },
-}) => ({
-  like,
-  friend,
-  range,
-  categories,
-});
-
-export default connect(mapStateToProps)(Options);
+export default Options;

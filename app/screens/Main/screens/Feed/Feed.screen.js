@@ -4,13 +4,13 @@ import {store} from '_redux/store';
 import {connect} from 'react-redux';
 import {fetchContent} from './Feed.actions';
 
-import {FlatList, View} from 'react-native';
+import {FlatList} from 'react-native';
 
 import {Article, Request} from './components/index';
 
 import FeedStyles from './Feed.styles';
 
-const FeedScreen = ({content}) => {
+const FeedScreen = ({content, navigation}) => {
   useEffect(() => {
     store.dispatch(fetchContent());
   }, []);
@@ -19,6 +19,7 @@ const FeedScreen = ({content}) => {
     <FlatList
       showsVerticalScrollIndicator={false}
       style={FeedStyles.feed}
+      contentContainerStyle={FeedStyles.feedContainer}
       data={content}
       renderItem={({item}) => {
         if (item.postType === 'request') {
@@ -28,6 +29,11 @@ const FeedScreen = ({content}) => {
               type={item.type}
               photo={item.path}
               title={item.name}
+              onPress={() => {
+                navigation.navigate('ViewRequest', {
+                  requestId: item.uuid,
+                });
+              }}
             />
           );
         } else if (item.postType === 'content') {
@@ -36,11 +42,16 @@ const FeedScreen = ({content}) => {
               title={item.header}
               text={item.text}
               photos={item.imagesUrl}
+              onPress={() =>
+                navigation.navigate('ViewArticle', {
+                  articleId: item.uuid,
+                })
+              }
             />
           );
         }
       }}
-      keyExtractor={item => item.uuid + ' ' + item.title}
+      keyExtractor={item => item.uuid}
     />
   );
 };

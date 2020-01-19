@@ -37,11 +37,20 @@ export const FONT_BOLD = Platform.select({
   },
 });
 
-export const EXTRA_BOLD = Platform.select({
+export const EXTRA_EXTRA_BOLD = Platform.select({
   android: {
     fontFamily: 'Montserrat-ExtraBold',
   },
   ios: {
     fontFamily: 'Montserrat-ExtraBold',
+  },
+});
+
+export const FONT_LIGHT = Platform.select({
+  android: {
+    fontFamily: 'Montserrat-Light',
+  },
+  ios: {
+    fontFamily: 'Montserrat-Light',
   },
 });

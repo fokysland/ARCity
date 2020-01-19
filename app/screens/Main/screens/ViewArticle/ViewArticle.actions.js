@@ -8,6 +8,7 @@ export const setArticle = article => ({
 export const fetchArticle = id => async dispatch => {
   const res = await getArticle(id);
   if (res.ok) {
-    setArticle(res.data);
+    console.log(res.body);
+    dispatch(setArticle(res.body));
   }
 };

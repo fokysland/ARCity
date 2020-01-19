@@ -3,6 +3,9 @@ import {StyleSheet} from 'react-native';
 import {Helpers, Colors, Typography} from '_styles/index';
 
 const style = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.designWhite,
+  },
   picker: {
     borderWidth: 2,
     borderColor: Colors.primaryColor,

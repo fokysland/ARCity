@@ -15,7 +15,8 @@
           "_utils": "./app/utils",
           "_api": "./app/services/api",
           "_screens": "./app/screens",
-          "_redux": "./app/redux"
+          "_redux": "./app/redux",
+          "_hooks": "./app/hooks"
         }
       }
     ]

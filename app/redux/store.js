@@ -13,7 +13,7 @@ import authReducer from '_screens/AuthFlow/AuthFlow.reducer';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: ['isLoading'],
+  blacklist: ['isLoading', 'main.common.isVisible'],
 };
 
 const combinedReducers = combineReducers({

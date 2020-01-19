@@ -1,8 +1,34 @@
 import React from 'react';
-import BottomNavigator from '_screens/Main/components/BottomNavigator';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+import FeedNavigation from '_screens/Main/screens/Feed/Feed.navigation';
+import MapNavigation from '_screens/Main/screens/Map/Map.navigation';
+import ChatsNavigation from '_screens/Main/screens/Chats/Chats.navigation';
+
+import {TabBar} from './components/index';
+
+const {Navigator, Screen} = createBottomTabNavigator();
 
 const MainNavigation = () => {
-  return <BottomNavigator />;
+  return (
+    <Navigator initialRouteName="Feed" tabBar={props => <TabBar {...props} />}>
+      <Screen name="Feed" component={FeedNavigation} />
+      <Screen
+        name="Map"
+        component={MapNavigation}
+        options={{
+          tabBarIcon: ({color}) => (
+            <Icon name="add-location" size={20} color={color} />
+          ),
+        }}
+      />
+      <Screen name="Chats" component={ChatsNavigation} />
+      <Screen name="Menu" component={() => <></>} />
+    </Navigator>
+  );
 };
 
 export default MainNavigation;

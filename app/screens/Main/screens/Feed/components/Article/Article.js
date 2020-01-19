@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 
 import {Header} from '_components/index';
 
@@ -35,7 +35,10 @@ const Article = ({onPress, title, text, photos}) => {
     }
   };
   return (
-    <View style={ArticleStyles.container} onTouchStart={onPress}>
+    <TouchableOpacity
+      style={ArticleStyles.container}
+      onPress={onPress}
+      activeOpacity={0.7}>
       <View style={photos && photos.length ? ArticleStyles.left : null}>
         {leftContent()}
       </View>
@@ -56,7 +59,7 @@ const Article = ({onPress, title, text, photos}) => {
           style={ArticleStyles.link}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -1,16 +1,17 @@
 import {
-  POST_FULFILLED,
-  POST_REJECTED,
   SET_CATEGORY,
   SET_DESCRIPTION,
   SET_POSITION,
+  SET_NAME,
+  SET_URI,
 } from './NewRequest.actions';
 
 const defaultState = {
   category: 'other',
-  description: 'Расскажи обо мне немного больше',
-  position: null,
-  error: null,
+  description: '',
+  name: '',
+  position: {},
+  uri: '',
 };
 
 const handlers = {
@@ -26,20 +27,20 @@ const handlers = {
     ...state,
     description,
   }),
-  [POST_FULFILLED]: state => ({
+  [SET_NAME]: (state, name) => ({
     ...state,
-    error: null,
+    name,
   }),
-  [POST_REJECTED]: state => ({
+  [SET_URI]: (state, uri) => ({
     ...state,
-    error: 'Ошибка сервера',
+    uri,
   }),
   DEFAULT: state => state,
 };
 
-const mapReducer = (state = defaultState, action) => {
+const newRequestReducer = (state = defaultState, action) => {
   const handler = handlers[action.type] || handlers.DEFAULT;
   return handler(state, action.payload);
 };
 
-export default mapReducer;
+export default newRequestReducer;

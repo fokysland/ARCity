@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import {store} from '_redux/store';
 import {connect} from 'react-redux';
 import {fetchArticle} from './ViewArticle.actions';
+import useTabBar from '_hooks/useTabBar';
 
 import {View, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {Header} from '_components/index';
@@ -19,7 +20,7 @@ const ViewArticle = ({
   title,
   name,
   photo,
-  photos,
+  photos = [],
   text,
   likes,
   dislikes,
@@ -28,6 +29,7 @@ const ViewArticle = ({
     params: {articleId},
   },
 }) => {
+  useTabBar();
   useEffect(() => {
     store.dispatch(fetchArticle(articleId));
   }, [articleId]);

@@ -7,6 +7,7 @@ const defaultState = {
 
 const handlers = {
   [SET_REQUEST]: (state, request) => {
+    console.log(request);
     const newRequest = {
       text: request.about,
       likes: request.likes,
@@ -14,7 +15,10 @@ const handlers = {
       title: request.name,
       type: getReadableType(request.type),
       userId: request.uuidUser,
-      location: request.location.longitude + ' ' + request.location.latitude,
+      location: request.address,
+      authorPhoto: request.photoSmall,
+      photo: request.path,
+      name: request.name + ' ' + request.surname,
     };
     return {
       ...state,

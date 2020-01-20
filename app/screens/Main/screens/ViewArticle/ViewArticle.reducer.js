@@ -14,6 +14,7 @@ const handlers = {
       text: article.text,
       userId: article.userId,
       photos: article.imagesUrl,
+      photo: article.photoSmall,
     };
     return {
       ...state,

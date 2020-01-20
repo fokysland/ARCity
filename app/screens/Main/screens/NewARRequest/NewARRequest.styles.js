@@ -7,15 +7,19 @@ const style = StyleSheet.create({
     backgroundColor: Colors.designWhite,
     alignItems: 'center',
     paddingHorizontal: Helpers.scaleSize(37),
+    paddingTop: Helpers.verticalScale(27),
   },
   picker: {
     borderWidth: 2,
     borderColor: Colors.primaryColor,
-    marginTop: Helpers.verticalScale(27),
     alignItems: 'center',
     justifyContent: 'center',
+    height: Helpers.scaleSize(300),
+    width: Helpers.scaleSize(300),
+    borderRadius: 10,
   },
   nameInput: {
+    width: '100%',
     ...Typography.FONT_SEMIBOLD,
     borderWidth: 1,
     borderColor: Colors.primaryColor,
@@ -24,7 +28,9 @@ const style = StyleSheet.create({
     fontSize: Helpers.scaleSize(14),
     marginTop: Helpers.verticalScale(20),
     marginBottom: Helpers.verticalScale(11),
-    ...Helpers.boxShadow('#000', {width: 0, height: 0}, 15, 0.05, 1.4),
+  },
+  placeholder: {
+    color: Colors.designBlack,
   },
   requestDescription: {
     marginLeft: Helpers.scaleSize(36),
@@ -41,6 +47,7 @@ const style = StyleSheet.create({
     minHeight: Helpers.verticalScale(190),
     textAlignVertical: 'top',
     padding: Helpers.scaleSize(10),
+    width: '100%',
   },
   sendRequest: {
     ...Typography.FONT_SEMIBOLD,

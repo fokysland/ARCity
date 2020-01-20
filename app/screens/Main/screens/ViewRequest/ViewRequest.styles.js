@@ -92,7 +92,6 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...Helpers.boxShadow('#000', {x: 0, y: 0}, 15, 0.1, 1),
   },
   like: {
     ...Typography.FONT_LIGHT,
@@ -111,7 +110,6 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...Helpers.boxShadow('#000', {x: 0, y: 0}, 15, 0.1, 1),
   },
   dislike: {
     ...Typography.FONT_LIGHT,

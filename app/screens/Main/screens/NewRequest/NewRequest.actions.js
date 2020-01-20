@@ -1,9 +1,10 @@
 import {getTextValue} from '_utils/text';
+import {createRequest} from '_api/request.api';
 
 export const SET_CATEGORY = 'SET_CATEGORY';
 export const setCategory = category => ({
   type: SET_CATEGORY,
-  payload: getTextValue(category),
+  payload: category,
 });
 
 export const SET_DESCRIPTION = 'SET_DESCRIPTION';
@@ -27,22 +28,22 @@ export const setName = name => ({
 export const SET_URI = 'SET_URI';
 export const setUri = uri => ({
   type: SET_URI,
-  payload: uri.uri,
+  payload: uri,
 });
 
 export const postRequest = ({
   name,
-  type,
-  about,
+  category,
   description,
   position,
+  uri,
 }) => async dispatch => {
-  const res = postRequest({
+  const res = await createRequest({
     name,
-    type,
-    about,
+    category,
     description,
     position,
+    uri,
   });
   if (!res.ok) {
     return Promise.reject();

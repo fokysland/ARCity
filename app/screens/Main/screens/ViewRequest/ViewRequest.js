@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 
+import useTabBar from '_hooks/useTabBar';
 import {store} from '_redux/store';
 import {connect} from 'react-redux';
 import {fetchRequest} from './ViewRequest.actions';
@@ -15,8 +16,8 @@ import ShareIcon from '_assets/images/share.svg';
 
 const ViewRequest = ({
   navigation,
-  title = 'aaaaaaaaa',
-  name = 'oooooo sssssss',
+  title,
+  name,
   photo,
   text,
   likes,
@@ -24,11 +25,12 @@ const ViewRequest = ({
   authorId,
   authorPhoto,
   location,
-  type = 'aa',
+  type,
   route: {
     params: {requestId},
   },
 }) => {
+  useTabBar();
   useEffect(() => {
     store.dispatch(fetchRequest(requestId));
   }, [requestId]);

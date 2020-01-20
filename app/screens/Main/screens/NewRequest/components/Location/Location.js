@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 
 import {Header} from '_components/index';
 
@@ -14,14 +14,15 @@ const Location = ({setLocation, location, navigation}) => {
   };
   return (
     <TouchableOpacity style={LocationStyles.container} onPress={handleClick}>
-      <Header text="Геопозиция" size={14} style={LocationStyles.text} />
       {location ? (
         <Header
           text={location.longitude}
           size={14}
           style={LocationStyles.text}
         />
-      ) : null}
+      ) : (
+        <Header text="Геопозиция" size={14} style={LocationStyles.text} />
+      )}
       <Image source={googleMapsIcon} style={LocationStyles.gmapsIcon} />
     </TouchableOpacity>
   );

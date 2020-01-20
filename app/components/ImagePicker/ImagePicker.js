@@ -9,15 +9,17 @@ import ImagePickerStyles from './ImagePicker.styles';
 
 const ImagePicker = ({containerStyle, text = 'Фото', textStyle, setUri}) => {
   const handleClick = async () => {
-    const image = await Picker.openPicker({
-      cropping: true,
-      width: 1200,
-      height: 1200,
-      cropperCircleOverlay: true,
-      freeStyleCropEnabled: false,
-      showCropGuidelines: false,
-    });
-    setUri({uri: image.path, ...image});
+    try {
+      const image = await Picker.openPicker({
+        cropping: true,
+        width: 1200,
+        height: 1200,
+        cropperCircleOverlay: true,
+        freeStyleCropEnabled: false,
+        showCropGuidelines: false,
+      });
+      setUri({uri: image.path, ...image});
+    } catch (e) {}
   };
   return (
     <View

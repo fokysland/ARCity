@@ -26,7 +26,7 @@ const style = StyleSheet.create({
     width: Helpers.scaleSize(100),
     alignItems: 'center',
   },
-  button: {
+  centralButton: {
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
@@ -37,6 +37,18 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: Helpers.scaleSize(100),
+    alignItems: 'center',
+  },
+  buttons: {
+    position: 'absolute',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    bottom: Helpers.verticalScale(100),
+  },
+  button: {
+    justifyContent: 'center',
     alignItems: 'center',
   },
 });

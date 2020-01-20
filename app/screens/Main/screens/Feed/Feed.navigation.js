@@ -17,7 +17,7 @@ const {Navigator, Screen} = createStackNavigator();
 
 const FeedNavigation = () => {
   return (
-    <Navigator initialRouteName="NewRequest">
+    <Navigator initialRouteName="Feed">
       <Screen
         name="Feed"
         component={FeedScreen}

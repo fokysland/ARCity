@@ -1,4 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+
+import {useFocusEffect} from '@react-navigation/native';
 
 import {store} from '_redux/store';
 import {connect} from 'react-redux';
@@ -11,9 +13,11 @@ import {Article, Request} from './components/index';
 import FeedStyles from './Feed.styles';
 
 const FeedScreen = ({content, navigation}) => {
-  useEffect(() => {
-    store.dispatch(fetchContent());
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      store.dispatch(fetchContent());
+    }, []),
+  );
 
   return (
     <FlatList
@@ -25,7 +29,7 @@ const FeedScreen = ({content, navigation}) => {
         if (item.postType === 'request') {
           return (
             <Request
-              geolocation={item.geolocation}
+              address={item.address}
               type={item.type}
               photo={item.path}
               title={item.name}

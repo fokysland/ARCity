@@ -11,10 +11,10 @@ const style = StyleSheet.create({
     ...Typography.FONT_REGULAR,
   },
   container: {
+    width: '100%',
     marginBottom: Helpers.verticalScale(5),
     display: 'flex',
     flexDirection: 'row',
-    width: Helpers.scaleSize(190),
     justifyContent: 'space-between',
     alignItems: 'center',
   },

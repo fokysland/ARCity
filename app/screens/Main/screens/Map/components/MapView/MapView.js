@@ -1,4 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+
+import {useFocusEffect} from '@react-navigation/native';
 
 import {Keyboard} from 'react-native';
 
@@ -9,13 +11,14 @@ import {connect} from 'react-redux';
 import BasicMapView, {Marker} from 'react-native-maps';
 
 import MapViewStyles from './MapView.styles';
-import {mapConfig} from '../../../NewRequestPicker/Map.config';
+import {mapConfig} from './Map.config';
 
 const MapView = ({requests}) => {
-  useEffect(() => {
-    store.dispatch(fetchRequests());
-  }, []);
-
+  useFocusEffect(
+    React.useCallback(() => {
+      store.dispatch(fetchRequests());
+    }, []),
+  );
   return (
     <BasicMapView
       onPress={() => Keyboard.dismiss()}

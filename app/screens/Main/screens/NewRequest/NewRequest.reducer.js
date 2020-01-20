@@ -7,11 +7,14 @@ import {
 } from './NewRequest.actions';
 
 const defaultState = {
-  category: 'other',
+  category: 'bench',
   description: '',
   name: '',
-  position: {},
-  uri: '',
+  position: {
+    longitude: 55,
+    latitude: 33,
+  },
+  uri: {},
 };
 
 const handlers = {

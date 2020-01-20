@@ -7,7 +7,7 @@ import {Categories, Text} from '_utils/index';
 
 import RequestStyles from './Request.styles';
 
-const Request = ({onPress, photo, title, geolocation, type}) => {
+const Request = ({onPress, photo, title, address, type}) => {
   return (
     <TouchableOpacity
       style={RequestStyles.container}
@@ -29,8 +29,9 @@ const Request = ({onPress, photo, title, geolocation, type}) => {
           <View>
             <Header
               style={RequestStyles.text}
-              text={geolocation.latitude + ' ' + geolocation.longitude}
+              text={address}
               size={14}
+              numberOfLines={1}
             />
             <Header
               size={14}

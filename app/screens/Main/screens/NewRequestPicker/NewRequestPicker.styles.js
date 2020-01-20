@@ -14,7 +14,6 @@ const style = StyleSheet.create({
     bottom: Helpers.verticalScale(-30),
   },
   marker: {
-    borderWidth: 1,
     width: Helpers.scaleSize(33),
     height: Helpers.verticalScale(47.5),
   },

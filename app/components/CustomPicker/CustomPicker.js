@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {store} from '_redux/store';
-
 import {ImagePicker} from '_components/index';
 import {Image, TouchableOpacity} from 'react-native';
 
@@ -16,22 +14,22 @@ const CustomPicker = ({
   height = 210,
   width = 210,
 }) => {
-  if (!uri) {
+  if (!uri.uri) {
     return (
       <ImagePicker
         containerStyle={[
           CustomPickerStyles.picker({width, height}),
           pickerStyle,
         ]}
-        setUri={newUri => store.dispatch(setUri(newUri))}
+        setUri={newUri => setUri(newUri)}
         text={text}
       />
     );
   } else {
     return (
-      <TouchableOpacity onPress={() => store.dispatch(setUri({}))}>
+      <TouchableOpacity onPress={() => setUri({})}>
         <Image
-          source={{uri}}
+          source={{uri: uri.uri}}
           style={[CustomPickerStyles.picker({width, height}), photoStyle]}
         />
       </TouchableOpacity>

@@ -1,14 +1,14 @@
 import {getRequests} from '_api/map.api';
 
-export const FETCH_FULFILLED = 'FETCH_FULFILLED';
+export const MAP_FETCH_FULFILLED = 'MAP_FETCH_FULFILLED';
 export const fetchFulfilled = data => ({
-  type: FETCH_FULFILLED,
+  type: MAP_FETCH_FULFILLED,
   payload: data,
 });
 
-export const FETCH_REJECTED = 'FETCH_REJECTED';
+export const MAP_FETCH_REJECTED = 'MAP_FETCH_REJECTED';
 export const fetchRejected = () => ({
-  type: FETCH_REJECTED,
+  type: MAP_FETCH_REJECTED,
 });
 
 export const fetchRequests = () => async dispatch => {
@@ -22,37 +22,37 @@ export const fetchRequests = () => async dispatch => {
   }
 };
 
-export const SET_SEARCH = 'SET_SEARCH';
+export const MAP_SET_SEARCH = 'MAP_SET_SEARCH';
 export const setSearch = search => ({
-  type: SET_SEARCH,
+  type: MAP_SET_SEARCH,
   payload: search,
 });
 
-export const SET_LIKE = 'SET_LIKE';
+export const MAP_SET_LIKE = 'MAP_SET_LIKE';
 // setLike will just change field like to !like
 export const setLike = () => ({
-  type: SET_LIKE,
+  type: MAP_SET_LIKE,
 });
 
-export const SET_FRIEND = 'SET_FRIEND';
+export const MAP_SET_FRIEND = 'MAP_SET_FRIEND';
 // same as above
 export const setFriend = () => ({
-  type: SET_FRIEND,
+  type: MAP_SET_FRIEND,
 });
 
-export const SET_RANGE = 'SET_RANGE';
+export const MAP_SET_RANGE = 'MAP_SET_RANGE';
 export const setRange = range => ({
-  type: SET_RANGE,
+  type: MAP_SET_RANGE,
   payload: range,
 });
 
-export const SET_CATEGORY = 'SET_CATEGORY';
+export const MAP_SET_CATEGORY = 'MAP_SET_CATEGORY';
 export const setCategory = category => ({
-  type: SET_CATEGORY,
+  type: MAP_SET_CATEGORY,
   payload: category,
 });
 
-export const SET_OPENED = 'SET_OPENED';
+export const MAP_SET_OPENED = 'MAP_SET_OPENED';
 export const setOpened = () => ({
   type: SET_OPENED,
 });

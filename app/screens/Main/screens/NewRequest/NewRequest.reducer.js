@@ -1,9 +1,9 @@
 import {
-  SET_CATEGORY,
-  SET_DESCRIPTION,
-  SET_POSITION,
-  SET_NAME,
-  SET_URI,
+  NEW_REQUEST_SET_CATEGORY,
+  NEW_REQUEST_SET_DESCRIPTION,
+  NEW_REQUEST_SET_POSITION,
+  NEW_REQUEST_SET_NAME,
+  NEW_REQUEST_SET_URI,
 } from './NewRequest.actions';
 
 const defaultState = {
@@ -18,23 +18,23 @@ const defaultState = {
 };
 
 const handlers = {
-  [SET_CATEGORY]: (state, category) => ({
+  [NEW_REQUEST_SET_CATEGORY]: (state, category) => ({
     ...state,
     category,
   }),
-  [SET_POSITION]: (state, position) => ({
+  [NEW_REQUEST_SET_POSITION]: (state, position) => ({
     ...state,
     position,
   }),
-  [SET_DESCRIPTION]: (state, description) => ({
+  [NEW_REQUEST_SET_DESCRIPTION]: (state, description) => ({
     ...state,
     description,
   }),
-  [SET_NAME]: (state, name) => ({
+  [NEW_REQUEST_SET_NAME]: (state, name) => ({
     ...state,
     name,
   }),
-  [SET_URI]: (state, uri) => ({
+  [NEW_REQUEST_SET_URI]: (state, uri) => ({
     ...state,
     uri,
   }),

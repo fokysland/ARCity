@@ -1,39 +1,47 @@
-import {registerUser} from '_api/auth.api';
+import {registerUser, tokens} from '_api/auth.api';
 import {getTextValue} from '_utils/text';
+import {
+  goToAuth,
+  goToMain,
+  saveAccessToken,
+  saveRefreshToken,
+  setLoading,
+} from '_redux/global/actions';
 
-export const SET_URI = 'SET_URI';
+export const REGISTRATION_SET_URI = 'REGISTRATION_SET_URI';
 export const setUri = uri => ({
-  type: SET_URI,
-  payload: uri.uri,
+  type: REGISTRATION_SET_URI,
+  payload: uri,
 });
 
-export const SET_EMAIL = 'SET_EMAIL';
+export const REGISTRATION_SET_EMAIL = 'REGISTRATION_SET_EMAIL';
 export const setEmail = email => ({
-  type: SET_EMAIL,
+  type: REGISTRATION_SET_EMAIL,
   payload: getTextValue(email),
 });
 
-export const SET_NAME = 'SET_NAME';
+export const REGISTRATION_SET_NAME = 'REGISTRATION_SET_NAME';
 export const setName = name => ({
-  type: SET_NAME,
+  type: REGISTRATION_SET_NAME,
   payload: getTextValue(name),
 });
 
-export const SET_SURNAME = 'SET_SURNAME';
+export const REGISTRATION_SET_SURNAME = 'REGISTRATION_SET_SURNAME';
 export const setSurname = surname => ({
-  type: SET_SURNAME,
+  type: REGISTRATION_SET_SURNAME,
   payload: getTextValue(surname),
 });
 
-export const SET_PASSWORD = 'SET_PASSWORD';
+export const REGISTRATION_SET_PASSWORD = 'REGISTRATION_SET_PASSWORD';
 export const setPassword = password => ({
-  type: SET_PASSWORD,
+  type: REGISTRATION_SET_PASSWORD,
   payload: getTextValue(password),
 });
 
-export const SET_REPEATED_PASSWORD = 'SET_REPEATED_PASSWORD';
+export const REGISTRATION_SET_REPEATED_PASSWORD =
+  'REGISTRATION_SET_REPEATED_PASSWORD';
 export const setRepeatedPassword = password => ({
-  type: SET_REPEATED_PASSWORD,
+  type: REGISTRATION_SET_REPEATED_PASSWORD,
   payload: getTextValue(password),
 });
 
@@ -53,10 +61,21 @@ export const register = ({
   surname,
   password,
 }) => async dispatch => {
-  const res = registerUser(uri, email, name, surname, password);
+  dispatch(setLoading(true));
+  const res = await registerUser({uri, email, name, surname, password});
   if (res.ok) {
     dispatch(setRegisterFulfilled());
+    const tokensRes = await tokens(email, password);
+    if (tokensRes.ok) {
+      dispatch(saveAccessToken(tokensRes.body.accessToken));
+      dispatch(saveRefreshToken(tokensRes.body.refreshToken));
+      dispatch(goToMain());
+    } else {
+      dispatch(setRegisterRejected());
+      dispatch(goToAuth());
+    }
   } else {
     dispatch(setRegisterRejected());
+    dispatch(goToAuth());
   }
 };

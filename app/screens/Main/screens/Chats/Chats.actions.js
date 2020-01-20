@@ -1,8 +1,8 @@
 import {getChats} from '_api/chats.api';
 
-export const SET_CHATS = 'SET_CHATS';
+export const CHATS_SET_CHATS = 'CHATS_SET_CHATS';
 export const setChats = chats => ({
-  type: SET_CHATS,
+  type: CHATS_SET_CHATS,
   payload: chats,
 });
 

@@ -7,6 +7,7 @@ import AuthNavigation from '_screens/AuthFlow/Auth/Auth.navigation';
 import LoadingNavigation from '_screens/AuthFlow/Loading/Loading.navigation';
 
 const RootNavigation = ({isLoading, isLoggedIn}) => {
+  console.log('loading', isLoading, 'logged', isLoggedIn);
   if (isLoading) {
     return <LoadingNavigation isLoading={isLoading} />;
   }

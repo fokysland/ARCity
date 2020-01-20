@@ -1,15 +1,20 @@
 import {tokens} from '_api/auth.api';
 import {getTextValue} from '_utils/text';
+import {
+  goToAuth,
+  goToMain,
+  setLoading,
+} from '_redux/global/properties/properties.actions';
 
-export const SET_EMAIL = 'SET_EMAIL';
+export const LOGIN_SET_EMAIL = 'LOGIN_SET_EMAIL';
 export const setEmail = email => ({
-  type: SET_EMAIL,
+  type: LOGIN_SET_EMAIL,
   payload: getTextValue(email),
 });
 
-export const SET_PASSWORD = 'SET_PASSWORD';
+export const LOGIN_SET_PASSWORD = 'LOGIN_SET_PASSWORD';
 export const setPassword = password => ({
-  type: SET_PASSWORD,
+  type: LOGIN_SET_PASSWORD,
   payload: getTextValue(password),
 });
 
@@ -23,10 +28,13 @@ export const setLoginRejected = () => ({
 });
 
 export const login = ({email, password}) => async dispatch => {
-  const res = tokens(email, password);
+  dispatch(setLoading(true));
+  const res = await tokens(email, password);
   if (res.ok) {
     dispatch(setLoginFulfilled());
+    dispatch(goToMain());
   } else {
     dispatch(setLoginRejected());
+    dispatch(goToAuth());
   }
 };

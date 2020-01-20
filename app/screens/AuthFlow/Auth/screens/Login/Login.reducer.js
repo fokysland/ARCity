@@ -1,5 +1,4 @@
 import {SET_EMAIL, SET_PASSWORD} from './Login.actions';
-import {getTextValue} from '_utils/text';
 
 const defaultState = {
   email: '',

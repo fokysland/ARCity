@@ -1,11 +1,11 @@
-import {SET_ARTICLE} from './ViewArticle.actions';
+import {VIEW_ARTICLE_SET_ARTICLE} from './ViewArticle.actions';
 
 const defaultState = {
   article: {},
 };
 
 const handlers = {
-  [SET_ARTICLE]: (state, article) => {
+  [VIEW_ARTICLE_SET_ARTICLE]: (state, article) => {
     const newArticle = {
       dislikes: article.dislikes,
       likes: article.likes,

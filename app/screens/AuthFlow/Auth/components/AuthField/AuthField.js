@@ -3,7 +3,7 @@ import {TextInput} from 'react-native';
 
 import AuthFieldStyles from './AuthField.styles';
 
-const AuthField = ({placeholder, onChange, value, style}) => {
+const AuthField = ({placeholder, onChange, value, style, password}) => {
   return (
     <TextInput
       style={[AuthFieldStyles.authInputs, style]}
@@ -13,6 +13,7 @@ const AuthField = ({placeholder, onChange, value, style}) => {
       value={value}
       spellCheck={false}
       underlineColorAndroid="transparent"
+      secureTextEntry={password}
     />
   );
 };

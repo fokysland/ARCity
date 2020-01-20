@@ -1,10 +1,10 @@
 import {
-  SET_EMAIL,
-  SET_NAME,
-  SET_PASSWORD,
-  SET_REPEATED_PASSWORD,
-  SET_SURNAME,
-  SET_URI,
+  REGISTRATION_SET_EMAIL,
+  REGISTRATION_SET_NAME,
+  REGISTRATION_SET_PASSWORD,
+  REGISTRATION_SET_REPEATED_PASSWORD,
+  REGISTRATION_SET_SURNAME,
+  REGISTRATION_SET_URI,
 } from './Registration.actions';
 
 const defaultState = {
@@ -13,31 +13,31 @@ const defaultState = {
   surname: '',
   password: '',
   repeatedPassword: '',
-  uri: '',
+  uri: {},
 };
 
 const handlers = {
-  [SET_EMAIL]: (state, email) => ({
+  [REGISTRATION_SET_EMAIL]: (state, email) => ({
     ...state,
     email,
   }),
-  [SET_NAME]: (state, name) => ({
+  [REGISTRATION_SET_NAME]: (state, name) => ({
     ...state,
     name,
   }),
-  [SET_SURNAME]: (state, surname) => ({
+  [REGISTRATION_SET_SURNAME]: (state, surname) => ({
     ...state,
     surname,
   }),
-  [SET_PASSWORD]: (state, password) => ({
+  [REGISTRATION_SET_PASSWORD]: (state, password) => ({
     ...state,
     password,
   }),
-  [SET_REPEATED_PASSWORD]: (state, repeatedPassword) => ({
+  [REGISTRATION_SET_REPEATED_PASSWORD]: (state, repeatedPassword) => ({
     ...state,
     repeatedPassword,
   }),
-  [SET_URI]: (state, uri) => ({
+  [REGISTRATION_SET_URI]: (state, uri) => ({
     ...state,
     uri,
   }),

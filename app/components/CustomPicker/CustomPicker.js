@@ -10,6 +10,7 @@ const CustomPicker = ({
   setUri,
   pickerStyle,
   photoStyle,
+  containerStyle,
   text = 'Фото',
   height = 210,
   width = 210,
@@ -20,6 +21,7 @@ const CustomPicker = ({
         containerStyle={[
           CustomPickerStyles.picker({width, height}),
           pickerStyle,
+          containerStyle,
         ]}
         setUri={newUri => setUri(newUri)}
         text={text}
@@ -30,7 +32,11 @@ const CustomPicker = ({
       <TouchableOpacity onPress={() => setUri({})}>
         <Image
           source={{uri: uri.uri}}
-          style={[CustomPickerStyles.picker({width, height}), photoStyle]}
+          style={[
+            CustomPickerStyles.picker({width, height}),
+            photoStyle,
+            containerStyle,
+          ]}
         />
       </TouchableOpacity>
     );

@@ -2,30 +2,35 @@ import {StyleSheet} from 'react-native';
 import {Colors, Helpers, Typography} from '_styles/index';
 
 const registrationStyles = StyleSheet.create({
+  container: {
+    paddingHorizontal: Helpers.scaleSize(82),
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+  },
   arcityLabel: {
     ...Typography.EXTRA_BOLD,
     color: Colors.primaryColor,
     fontSize: Helpers.scaleSize(44),
     marginTop: Helpers.verticalScale(22),
   },
-  LogoContainer: {
+  logoContainer: {
     alignSelf: 'center',
   },
   picker: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4);',
+    marginTop: Helpers.verticalScale(10),
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
   },
-  authContainer: {
-    alignSelf: 'center',
-    alignItems: 'center',
-    width: Helpers.scaleSize(210),
-    marginTop: Helpers.verticalScale(20),
+  photoContainer: {
+    marginTop: Helpers.verticalScale(25),
+    marginBottom: Helpers.verticalScale(25),
   },
   signupButton: {
     marginTop: Helpers.verticalScale(16),
     alignSelf: 'center',
     backgroundColor: Colors.primaryColor,
     borderRadius: 50,
-    width: '56%',
+    width: '100%',
     height: Helpers.verticalScale(44),
     justifyContent: 'center',
   },
@@ -60,9 +65,6 @@ const registrationStyles = StyleSheet.create({
   background: {
     width: '100%',
     height: '100%',
-  },
-  firstInput: {
-    marginTop: Helpers.verticalScale(30),
   },
 });
 

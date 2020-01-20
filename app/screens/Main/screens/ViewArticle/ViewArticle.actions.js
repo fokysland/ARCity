@@ -1,14 +1,13 @@
 import {getArticle} from '_api/article.api';
-export const SET_ARTICLE = 'SET_ARTICLE';
+export const VIEW_ARTICLE_SET_ARTICLE = 'VIEW_ARTICLE_SET_ARTICLE';
 export const setArticle = article => ({
-  type: SET_ARTICLE,
+  type: VIEW_ARTICLE_SET_ARTICLE,
   payload: article,
 });
 
 export const fetchArticle = id => async dispatch => {
   const res = await getArticle(id);
   if (res.ok) {
-    console.log(res.body);
     dispatch(setArticle(res.body));
   }
 };

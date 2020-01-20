@@ -30,58 +30,57 @@ const RegistrationScreen = ({
   password,
   repeatedPassword,
   uri,
+  navigation,
 }) => {
   return (
     <ImageBackground source={background} style={registrationStyles.background}>
       <KeyboardAwareScrollView
         enableOnAndroid={true}
-        contentContainerStyle={registrationStyles.awareChild}>
-        <View style={registrationStyles.LogoContainer}>
+        contentContainerStyle={registrationStyles.container}>
+        <View style={registrationStyles.logoContainer}>
           <Text style={registrationStyles.arcityLabel}>ARCity</Text>
         </View>
 
-        <View style={registrationStyles.authContainer}>
-          <CustomPicker
-            uri={uri}
-            setUri={newUri => store.dispatch(setUri(newUri))}
-            pickerStyle={registrationStyles.picker}
-            height={210}
-            width={210}
-          />
-          <AuthField
-            placeholder="Email"
-            value={email}
-            style={registrationStyles.firstInput}
-            onChange={newEmail => store.dispatch(setEmail(newEmail))}
-          />
-          <AuthField
-            placeholder="Имя"
-            value={name}
-            onChange={newName => store.dispatch(setName(newName))}
-          />
-          <AuthField
-            placeholder="Фамилия"
-            value={surname}
-            onChange={newSurname => store.dispatch(setSurname(newSurname))}
-          />
-          <AuthField
-            placeholder="Пароль"
-            value={password}
-            onChange={newPassword => store.dispatch(setPassword(newPassword))}
-          />
-          <AuthField
-            placeholder="Повторите пароль"
-            value={repeatedPassword}
-            onChange={newRepeatedPassword =>
-              store.dispatch(setRepeatedPassword(newRepeatedPassword))
-            }
-          />
-        </View>
+        <CustomPicker
+          uri={uri}
+          setUri={newUri => store.dispatch(setUri(newUri))}
+          pickerStyle={registrationStyles.picker}
+          containerStyle={registrationStyles.photoContainer}
+          height={210}
+          width={210}
+        />
+        <AuthField
+          placeholder="Email"
+          value={email}
+          onChange={newEmail => store.dispatch(setEmail(newEmail))}
+        />
+        <AuthField
+          placeholder="Имя"
+          value={name}
+          onChange={newName => store.dispatch(setName(newName))}
+        />
+        <AuthField
+          placeholder="Фамилия"
+          value={surname}
+          onChange={newSurname => store.dispatch(setSurname(newSurname))}
+        />
+        <AuthField
+          placeholder="Пароль"
+          value={password}
+          onChange={newPassword => store.dispatch(setPassword(newPassword))}
+        />
+        <AuthField
+          placeholder="Повторите пароль"
+          value={repeatedPassword}
+          onChange={newRepeatedPassword =>
+            store.dispatch(setRepeatedPassword(newRepeatedPassword))
+          }
+        />
 
         <TouchableOpacity
           style={registrationStyles.signupButton}
           activeOpacity={0.8}
-          onPress={() =>
+          onPress={() => {
             store.dispatch(
               register({
                 name,
@@ -90,9 +89,9 @@ const RegistrationScreen = ({
                 password,
                 uri,
               }),
-            )
-          }>
-          <Text style={registrationStyles.signupText}>SIGN UP</Text>
+            );
+          }}>
+          <Text style={registrationStyles.signupText}>Присоединиться</Text>
         </TouchableOpacity>
       </KeyboardAwareScrollView>
     </ImageBackground>

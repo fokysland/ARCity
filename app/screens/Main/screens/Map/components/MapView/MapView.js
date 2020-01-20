@@ -13,7 +13,7 @@ import BasicMapView, {Marker} from 'react-native-maps';
 import MapViewStyles from './MapView.styles';
 import {mapConfig} from './Map.config';
 
-const MapView = ({requests}) => {
+const MapView = ({requests, navigation}) => {
   useFocusEffect(
     React.useCallback(() => {
       store.dispatch(fetchRequests());
@@ -26,9 +26,14 @@ const MapView = ({requests}) => {
       style={MapViewStyles.map}
       showsUserLocation={true}
       customMapStyle={mapConfig}>
-      {requests.map(({geolocation: {longitude, latitude}}) => (
+      {requests.map(({uuid, geolocation: {longitude, latitude}}) => (
         <Marker
           coordinate={{longitude, latitude}}
+          onPress={() =>
+            navigation.navigate('ViewRequest', {
+              requestId: uuid,
+            })
+          }
           key={`${longitude}-${latitude}-${(Math.random() * 100).toFixed(3)}`}
         />
       ))}

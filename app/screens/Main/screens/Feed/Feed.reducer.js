@@ -1,11 +1,11 @@
-import {SET_CONTENT} from '_screens/Main/screens/Feed/Feed.actions';
+import {FEED_SET_CONTENT} from '_screens/Main/screens/Feed/Feed.actions';
 
 const defaultState = {
   content: [],
 };
 
 const handlers = {
-  [SET_CONTENT]: (state, content) => ({
+  [FEED_SET_CONTENT]: (state, content) => ({
     ...state,
     content,
   }),

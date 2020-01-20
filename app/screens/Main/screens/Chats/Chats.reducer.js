@@ -1,11 +1,11 @@
-import {SET_CHATS} from '_screens/Main/screens/Chats/Chats.actions';
+import {CHATS_SET_CHATS} from '_screens/Main/screens/Chats/Chats.actions';
 
 const defaultState = {
   chats: [],
 };
 
 const handlers = {
-  [SET_CHATS]: (state, chats) => ({
+  [CHATS_SET_CHATS]: (state, chats) => ({
     ...state,
     chats,
   }),

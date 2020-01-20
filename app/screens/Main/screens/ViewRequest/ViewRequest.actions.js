@@ -1,8 +1,8 @@
 import {getRequest} from '_api/request.api';
 
-export const SET_REQUEST = 'SET_REQUEST';
+export const VIEW_REQUEST_SET_REQUEST = 'VIEW_REQUEST_SET_REQUEST';
 export const setRequest = req => ({
-  type: SET_REQUEST,
+  type: VIEW_REQUEST_SET_REQUEST,
   payload: req,
 });
 

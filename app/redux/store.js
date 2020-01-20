@@ -13,7 +13,7 @@ import authReducer from '_screens/AuthFlow/AuthFlow.reducer';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: ['isLoading', 'main'],
+  blacklist: ['isLoading'],
 };
 
 const combinedReducers = combineReducers({
@@ -26,14 +26,6 @@ const persistedReducer = persistReducer(persistConfig, combinedReducers);
 
 export const store = createStore(
   persistedReducer,
-  {
-    global: {
-      tokens: {
-        accessToken: 'admin',
-        refreshToken: '40d9631f-0a64-4a2d-859d-744ff64ba502',
-      },
-    },
-  },
   composeWithDevTools(applyMiddleware(thunk)),
 );
 

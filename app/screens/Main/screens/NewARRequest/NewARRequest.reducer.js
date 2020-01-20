@@ -1,9 +1,9 @@
 import {
-  SET_CATEGORY,
-  SET_DESCRIPTION,
-  SET_POSITION,
-  SET_NAME,
-} from '../NewRequest/NewRequest.actions';
+  NEW_AR_REQUEST_SET_CATEGORY,
+  NEW_AR_REQUEST_SET_DESCRIPTION,
+  NEW_AR_REQUEST_SET_POSITION,
+  NEW_AR_REQUEST_SET_NAME,
+} from './NewARRequest.actions';
 
 const defaultState = {
   category: 'other',
@@ -13,19 +13,19 @@ const defaultState = {
 };
 
 const handlers = {
-  [SET_CATEGORY]: (state, category) => ({
+  [NEW_AR_REQUEST_SET_CATEGORY]: (state, category) => ({
     ...state,
     category,
   }),
-  [SET_POSITION]: (state, position) => ({
+  [NEW_AR_REQUEST_SET_POSITION]: (state, position) => ({
     ...state,
     position,
   }),
-  [SET_DESCRIPTION]: (state, description) => ({
+  [NEW_AR_REQUEST_SET_DESCRIPTION]: (state, description) => ({
     ...state,
     description,
   }),
-  [SET_NAME]: (state, name) => ({
+  [NEW_AR_REQUEST_SET_NAME]: (state, name) => ({
     ...state,
     name,
   }),

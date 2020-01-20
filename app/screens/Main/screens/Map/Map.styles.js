@@ -5,7 +5,6 @@ const MapStyles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFill,
   },
-
 });
 
 export default MapStyles;

@@ -1,33 +1,33 @@
 import {getTextValue} from '_utils/text';
 import {createRequest} from '_api/request.api';
 
-export const NEW_REQUEST_SET_CATEGORY = 'NEW_REQUEST_SET_CATEGORY';
+export const NEW_AR_REQUEST_SET_CATEGORY = 'NEW_AR_REQUEST_SET_CATEGORY';
 export const setCategory = category => ({
-  type: NEW_REQUEST_SET_CATEGORY,
+  type: NEW_AR_REQUEST_SET_CATEGORY,
   payload: category,
 });
 
-export const NEW_REQUEST_SET_DESCRIPTION = 'NEW_REQUEST_SET_DESCRIPTION';
+export const NEW_AR_REQUEST_SET_DESCRIPTION = 'NEW_AR_REQUEST_SET_DESCRIPTION';
 export const setDescription = description => ({
-  type: NEW_REQUEST_SET_DESCRIPTION,
+  type: NEW_AR_REQUEST_SET_DESCRIPTION,
   payload: getTextValue(description),
 });
 
-export const NEW_REQUEST_SET_POSITION = 'NEW_REQUEST_SET_POSITION';
+export const NEW_AR_REQUEST_SET_POSITION = 'NEW_AR_REQUEST_SET_POSITION';
 export const setPosition = position => ({
-  type: NEW_REQUEST_SET_POSITION,
+  type: NEW_AR_REQUEST_SET_POSITION,
   payload: position,
 });
 
-export const NEW_REQUEST_SET_NAME = 'NEW_REQUEST_SET_NAME';
+export const NEW_AR_REQUEST_SET_NAME = 'NEW_AR_REQUEST_SET_NAME';
 export const setName = name => ({
-  type: NEW_REQUEST_SET_NAME,
+  type: NEW_AR_REQUEST_SET_NAME,
   payload: getTextValue(name),
 });
 
-export const NEW_REQUEST_SET_URI = 'NEW_REQUEST_SET_URI';
+export const NEW_AR_REQUEST_SET_URI = 'NEW_AR_REQUEST_SET_URI';
 export const setUri = uri => ({
-  type: NEW_REQUEST_SET_URI,
+  type: NEW_AR_REQUEST_SET_URI,
   payload: uri,
 });
 

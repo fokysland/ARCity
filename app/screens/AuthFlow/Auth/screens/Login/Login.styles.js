@@ -3,24 +3,17 @@ import {Helpers, Colors, Typography} from '_styles/index';
 
 const loginStyles = StyleSheet.create({
   arcityIcon: {
-    width: Helpers.scaleSize(47),
-    height: Helpers.verticalScale(58),
     alignSelf: 'center',
   },
   arcityLabel: {
+    ...Typography.EXTRA_BOLD,
     color: Colors.primaryColor,
-    fontFamily: 'Montserrat-ExtraBold',
     fontSize: Helpers.scaleSize(44),
     marginTop: Helpers.verticalScale(20),
   },
   logoContainer: {
     alignSelf: 'center',
-    marginBottom: Helpers.verticalScale(30),
-  },
-  authContainer: {
-    alignSelf: 'center',
     marginBottom: Helpers.verticalScale(50),
-    width: Helpers.scaleSize(210),
   },
   input: {
     marginBottom: Helpers.verticalScale(40),
@@ -30,8 +23,7 @@ const loginStyles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     borderRadius: 50,
-    minWidth: '56%',
-    width: '56%',
+    width: '100%',
     height: Helpers.verticalScale(44),
   },
   loginText: {
@@ -54,8 +46,9 @@ const loginStyles = StyleSheet.create({
     height: '100%',
   },
   awareChild: {
-    marginTop: 'auto',
-    marginBottom: 'auto',
+    paddingHorizontal: Helpers.scaleSize(82),
+    justifyContent: 'center',
+    height: '100%',
   },
 });
 

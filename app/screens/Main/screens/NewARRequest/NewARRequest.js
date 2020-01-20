@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {useRoute} from '@react-navigation/native';
+
 import {
   postRequest,
   setDescription,
@@ -12,21 +14,21 @@ import {store} from '_redux/store';
 
 import useTabBar from '_hooks/useTabBar';
 
-import {View, TouchableOpacity, Text} from 'react-native';
+import {TouchableOpacity, Text, Image} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import NewARRequestStyles from './NewARRequest.styles';
 
 const NewARRequest = ({uri, name, description, navigation}) => {
+  // const route = useRoute();
+  // const {arCategory, arUri} = route.params;
   useTabBar();
   return (
     <KeyboardAwareScrollView
       enableOnAndroid={true}
       contentContainerStyle={NewARRequestStyles.container}>
-      <TouchableOpacity style={NewARRequestStyles.picker}>
-        <Text style={NewARRequestStyles.pickerText}>Фото</Text>
-      </TouchableOpacity>
+      <Image style={NewARRequestStyles.picker} source={{uri}} />
       <TextInput
         placeholder="Как меня назовешь?"
         placeholderTextColor={NewARRequestStyles.placeholder.color}

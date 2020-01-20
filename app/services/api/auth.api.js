@@ -8,7 +8,7 @@ export const tokens = (email, password) => {
   return post('/oauth/tokens', {email, password}, false, false);
 };
 
-export const registerUser = (uri, email, name, surname, password) => {
+export const registerUser = ({uri, email, name, surname, password}) => {
   const form = new FormData();
   form.append('requestData[email]', email);
   form.append('requestData[name]', name);
@@ -16,7 +16,7 @@ export const registerUser = (uri, email, name, surname, password) => {
   form.append('requestData[password]', password);
   form.append('requestData[image]', {
     uri: uri.uri,
-    name: uri.filename,
+    name: uri.path.split('/')[uri.path.split('/').length - 1],
     type: 'image/jpeg',
   });
 

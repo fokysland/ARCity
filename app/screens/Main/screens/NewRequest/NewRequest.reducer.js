@@ -5,6 +5,7 @@ import {
   NEW_REQUEST_SET_NAME,
   NEW_REQUEST_SET_URI,
   CLEAR_NEW_REQUEST,
+  NEW_REQUEST_SET_READABLE_POSITION,
 } from './NewRequest.actions';
 import {CLEAR} from '_screens/Main/Main.actions';
 
@@ -12,6 +13,7 @@ const defaultState = {
   category: 'bench',
   description: '',
   name: '',
+  readablePosition: '',
   position: {
     longitude: 0,
     latitude: 0,
@@ -39,6 +41,10 @@ const handlers = {
   [NEW_REQUEST_SET_URI]: (state, uri) => ({
     ...state,
     uri,
+  }),
+  [NEW_REQUEST_SET_READABLE_POSITION]: (state, readablePosition) => ({
+    ...state,
+    readablePosition,
   }),
   [CLEAR_NEW_REQUEST]: () => defaultState,
   [CLEAR]: () => defaultState,

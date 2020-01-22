@@ -1,6 +1,7 @@
 import {getTextValue} from '_utils/text';
 import {createRequest} from '_api/request.api';
 import Location from 'react-native-location';
+import {getReadablePosition} from '_utils/position';
 
 export const NEW_REQUEST_SET_CATEGORY = 'NEW_REQUEST_SET_CATEGORY';
 export const setCategory = category => ({
@@ -32,10 +33,25 @@ export const setUri = uri => ({
   payload: uri,
 });
 
+export const NEW_REQUEST_SET_READABLE_POSITION =
+  'NEW_REQUEST_SET_READABLE_POSITION';
+export const setReadablePosition = position => ({
+  type: NEW_REQUEST_SET_READABLE_POSITION,
+  payload: position,
+});
+
 export const CLEAR_NEW_REQUEST = 'CLEAR_NEW_REQUEST';
 export const clearNewRequest = () => ({
   type: CLEAR_NEW_REQUEST,
 });
+
+export const fetchReadablePosition = position => async dispatch => {
+  try {
+    const readablePosition = await getReadablePosition(position);
+    dispatch(setReadablePosition(readablePosition));
+    dispatch(setPosition(position));
+  } catch (e) {}
+};
 
 export const fetchPosition = () => async dispatch => {
   try {
@@ -46,19 +62,21 @@ export const fetchPosition = () => async dispatch => {
       },
     });
     const position = await Location.getLatestLocation();
+    const readablePosition = await getReadablePosition(position);
     dispatch(setPosition(position));
+    dispatch(setReadablePosition(readablePosition));
   } catch (e) {}
 };
 
 export const postRequest = ({
-  name,
+  title,
   category,
   description,
   position,
   uri,
 }) => async dispatch => {
   const res = await createRequest({
-    name,
+    title,
     category,
     description,
     position,

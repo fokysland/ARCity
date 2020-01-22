@@ -32,6 +32,7 @@ const ViewRequest = ({
     params: {requestId},
   },
 }) => {
+  console.log(authorPhoto);
   useTabBar(false);
   useEffect(() => {
     store.dispatch(fetchRequest(requestId));

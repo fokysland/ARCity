@@ -12,7 +12,7 @@ const handlers = {
       text: request.about,
       likes: request.likes,
       dislikes: request.dislikes,
-      title: request.name,
+      title: request.title,
       type: getReadableType(request.type),
       userId: request.uuidUser,
       location: request.address,

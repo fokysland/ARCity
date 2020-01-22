@@ -10,18 +10,14 @@ import LocationStyles from './Location.styles';
 
 const googleMapsIcon = require('_assets/images/GMaps.png');
 
-const Location = ({setLocation, location, navigation}) => {
+const Location = ({position, navigation, readablePosition}) => {
   const handleClick = () => {
     navigation.navigate('NewRequestPicker');
   };
   return (
     <TouchableOpacity style={LocationStyles.container} onPress={handleClick}>
-      {location ? (
-        <Header
-          text={location.longitude}
-          size={14}
-          style={LocationStyles.text}
-        />
+      {position ? (
+        <Header text={readablePosition} size={14} style={LocationStyles.text} />
       ) : (
         <Header text="Геопозиция" size={14} style={LocationStyles.text} />
       )}

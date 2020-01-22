@@ -1,5 +1,4 @@
 import {
-  NEW_AR_REQUEST_SET_CATEGORY,
   NEW_AR_REQUEST_SET_DESCRIPTION,
   NEW_AR_REQUEST_SET_POSITION,
   NEW_AR_REQUEST_SET_NAME,
@@ -15,10 +14,6 @@ const defaultState = {
 };
 
 const handlers = {
-  [NEW_AR_REQUEST_SET_CATEGORY]: (state, category) => ({
-    ...state,
-    category,
-  }),
   [NEW_AR_REQUEST_SET_POSITION]: (state, position) => ({
     ...state,
     position,

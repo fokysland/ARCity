@@ -8,10 +8,9 @@ const style = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: Helpers.scaleSize(37),
     paddingTop: Helpers.verticalScale(27),
+    height: '100%',
   },
   picker: {
-    borderWidth: 2,
-    borderColor: Colors.primaryColor,
     alignItems: 'center',
     justifyContent: 'center',
     height: Helpers.scaleSize(300),

@@ -18,7 +18,9 @@ const allScreens = () => [
     key={1}
     options={({navigation}) => {
       return {
-        headerTitle: () => <HeaderText navigation={navigation} text="Статья" />,
+        headerTitle: () => (
+          <HeaderText onPress={() => navigation.goBack()} text="Статья" />
+        ),
         headerLeft: null,
       };
     }}
@@ -29,7 +31,9 @@ const allScreens = () => [
     key={2}
     options={({navigation}) => {
       return {
-        headerTitle: () => <HeaderText navigation={navigation} text="Идея" />,
+        headerTitle: () => (
+          <HeaderText onPress={() => navigation.goBack()} text="Идея" />
+        ),
         headerLeft: null,
       };
     }}
@@ -41,7 +45,10 @@ const allScreens = () => [
     options={({navigation}) => {
       return {
         headerTitle: () => (
-          <HeaderText navigation={navigation} text="Создание идеи" />
+          <HeaderText
+            onPress={() => navigation.goBack()}
+            text="Создание идеи"
+          />
         ),
         headerLeft: null,
       };
@@ -60,7 +67,15 @@ const allScreens = () => [
     options={({navigation}) => {
       return {
         headerTitle: () => (
-          <HeaderText navigation={navigation} text="Создание идеи" />
+          <HeaderText
+            onPress={() =>
+              navigation.reset({
+                index: 0,
+                routes: [{name: 'Feed'}],
+              })
+            }
+            text="Создание идеи"
+          />
         ),
         headerLeft: null,
       };

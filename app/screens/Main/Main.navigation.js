@@ -26,7 +26,7 @@ const MainNavigation = () => {
           ),
         }}
       />
-      <Screen name="Profile" component={ProfileNavigation} />
+      {/*<Screen name="Profile" component={ProfileNavigation} />*/}
       <Screen name="Menu" component={Menu} />
     </Navigator>
   );

@@ -12,7 +12,6 @@ const style = StyleSheet.create({
   photo: {
     height: Helpers.verticalScale(300),
     width: Helpers.verticalScale(300),
-    borderWidth: 1,
     borderRadius: 10,
   },
   title: {

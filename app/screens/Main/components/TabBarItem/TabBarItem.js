@@ -31,7 +31,8 @@ const TabBarItem = ({routeName, navigation, index}) => {
       onPress={() => {
         navigation.navigate(routeName);
       }}
-      style={TabBarItemStyles.container}>
+      style={TabBarItemStyles.container}
+      hitSlop={{top: 10, right: 15, bottom: 10, left: 15}}>
       {mapRouteToIcon[routeName](index)}
     </TouchableOpacity>
   );

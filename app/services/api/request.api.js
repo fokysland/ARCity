@@ -1,15 +1,23 @@
 import {post, get} from '_services/network';
 
-export const createRequest = ({name, category, description, position, uri}) => {
+const getLast = array => array[array.length - 1];
+
+export const createRequest = ({
+  title,
+  category,
+  description,
+  position,
+  uri,
+}) => {
   const form = new FormData();
   form.append('requestData[type]', category);
-  form.append('requestData[name]', name);
+  form.append('requestData[title]', title);
   form.append('requestData[about]', description);
   form.append('requestData[latitude]', position.latitude);
   form.append('requestData[longitude]', position.longitude);
   form.append('requestData[image]', {
-    uri: uri.uri,
-    name: uri.path.split('/')[uri.path.split('/').length - 1],
+    uri: uri.uri ? uri.uri : 'file:///storage/emulated/0/' + uri,
+    name: uri.path ? getLast(uri.path.split('/')) : getLast(uri.split('/')),
     type: 'image/jpeg',
   });
   return post('/requests/create', form, true);

@@ -29,6 +29,7 @@ const MapView = ({requests, navigation, position}) => {
       showsCompass={false}
       style={MapViewStyles.map}
       showsUserLocation={true}
+      showsMyLocationButton={false}
       customMapStyle={mapConfig}>
       {requests.map(({uuid, geolocation: {longitude, latitude}}) => (
         <Marker

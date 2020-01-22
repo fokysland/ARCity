@@ -1,11 +1,6 @@
 import {getTextValue} from '_utils/text';
 import {createRequest} from '_api/request.api';
-
-export const NEW_AR_REQUEST_SET_CATEGORY = 'NEW_AR_REQUEST_SET_CATEGORY';
-export const setCategory = category => ({
-  type: NEW_AR_REQUEST_SET_CATEGORY,
-  payload: category,
-});
+import Location from 'react-native-location';
 
 export const NEW_AR_REQUEST_SET_DESCRIPTION = 'NEW_AR_REQUEST_SET_DESCRIPTION';
 export const setDescription = description => ({
@@ -25,31 +20,41 @@ export const setName = name => ({
   payload: getTextValue(name),
 });
 
-export const NEW_AR_REQUEST_SET_URI = 'NEW_AR_REQUEST_SET_URI';
-export const setUri = uri => ({
-  type: NEW_AR_REQUEST_SET_URI,
-  payload: uri,
-});
-
 export const CLEAR_NEW_AR_REQUEST = 'CLEAR_NEW_AR_REQUEST';
 export const clearNewARRequest = () => ({
   type: CLEAR_NEW_AR_REQUEST,
 });
 
+export const fetchPosition = () => async dispatch => {
+  try {
+    await Location.requestPermission({
+      ios: 'whenInUse',
+      android: {
+        detail: 'coarse',
+      },
+    });
+    const position = await Location.getLatestLocation();
+    dispatch(setPosition(position));
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const postRequest = ({
-  name,
+  title,
   category,
   description,
   position,
   uri,
 }) => async dispatch => {
   const res = await createRequest({
-    name,
+    title,
     category,
     description,
     position,
     uri,
   });
+  console.log(res);
   if (!res.ok) {
     return Promise.reject();
   } else {

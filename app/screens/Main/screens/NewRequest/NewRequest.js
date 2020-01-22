@@ -3,11 +3,11 @@ import React, {useEffect} from 'react';
 import {getCategoriesWithText} from '_utils/categoties';
 import {
   clearNewRequest,
+  fetchPosition,
   postRequest,
   setCategory,
   setDescription,
   setName,
-  setPosition,
   setUri,
 } from '_screens/Main/screens/NewRequest/NewRequest.actions';
 import {store} from '_redux/store';
@@ -28,11 +28,16 @@ const NewRequest = ({
   uri,
   category,
   position,
+  readablePosition,
   name,
   description,
   navigation,
 }) => {
   useTabBar(false);
+  useEffect(() => {
+    const thunk = store.dispatch(fetchPosition());
+  }, []);
+
   return (
     <KeyboardAwareScrollView
       enableOnAndroid={true}
@@ -53,8 +58,8 @@ const NewRequest = ({
         onChange={newName => store.dispatch(setName(newName))}
       />
       <Location
-        setLocation={newPosition => store.dispatch(setPosition(newPosition))}
-        location={position}
+        readablePosition={readablePosition}
+        position={position}
         navigation={navigation}
       />
       <Picker
@@ -80,8 +85,11 @@ const NewRequest = ({
         underlayColor="#000"
         activeOpacity={0.8}
         onPress={() => {
+          if (!name || !description) {
+            return;
+          }
           store.dispatch(
-            postRequest({name, position, category, uri, description}),
+            postRequest({title: name, position, category, uri, description}),
           );
           store.dispatch(clearNewRequest());
           navigation.navigate('Feed');
@@ -94,7 +102,7 @@ const NewRequest = ({
 
 const mapStateToProps = ({
   main: {
-    newRequest: {uri, category, position, name, description},
+    newRequest: {uri, category, position, name, description, readablePosition},
   },
 }) => ({
   uri,
@@ -102,6 +110,7 @@ const mapStateToProps = ({
   position,
   name,
   description,
+  readablePosition,
 });
 
 export default connect(mapStateToProps)(NewRequest);

@@ -1,6 +1,4 @@
-import React from 'react';
-
-import {useFocusEffect} from '@react-navigation/native';
+import React, {useEffect} from 'react';
 
 import {store} from '_redux/store';
 import {connect} from 'react-redux';
@@ -15,11 +13,9 @@ import useTabBar from '_hooks/useTabBar';
 
 const FeedScreen = ({content, navigation}) => {
   useTabBar(true);
-  useFocusEffect(
-    React.useCallback(() => {
-      store.dispatch(fetchContent());
-    }, []),
-  );
+  useEffect(() => {
+    store.dispatch(fetchContent());
+  }, []);
 
   return (
     <FlatList
@@ -34,7 +30,7 @@ const FeedScreen = ({content, navigation}) => {
               address={item.address}
               type={item.type}
               photo={item.path}
-              title={item.name}
+              title={item.title}
               onPress={() => {
                 navigation.navigate('ViewRequest', {
                   requestId: item.uuid,
@@ -42,20 +38,19 @@ const FeedScreen = ({content, navigation}) => {
               }}
             />
           );
-        } else if (item.postType === 'content') {
-          return (
-            <Article
-              title={item.header}
-              text={item.text}
-              photos={item.imagesUrl}
-              onPress={() =>
-                navigation.navigate('ViewArticle', {
-                  articleId: item.uuid,
-                })
-              }
-            />
-          );
         }
+        return (
+          <Article
+            title={item.header}
+            text={item.text}
+            photos={item.imagesUrl}
+            onPress={() =>
+              navigation.navigate('ViewArticle', {
+                articleId: item.uuid,
+              })
+            }
+          />
+        );
       }}
       keyExtractor={item => item.uuid}
     />

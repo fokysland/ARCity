@@ -9,6 +9,7 @@ const style = StyleSheet.create({
   },
   text: {
     ...Typography.FONT_REGULAR,
+    width: '80%',
   },
   container: {
     width: '100%',

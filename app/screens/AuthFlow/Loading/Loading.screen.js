@@ -1,11 +1,16 @@
 import React from 'react';
 
-import {ActivityIndicator, View} from 'react-native';
+import {View} from 'react-native';
+
+import LoadingStyles from './Loading.styles';
+import Image from 'react-native-fast-image';
+
+const logo = require('_assets/images/ARCity_logo.png');
 
 const LoadingScreen = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <ActivityIndicator size="large" />
+    <View style={LoadingStyles.container}>
+      <Image source={logo} />
     </View>
   );
 };

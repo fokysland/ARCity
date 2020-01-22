@@ -1,4 +1,5 @@
 import {VIEW_ARTICLE_SET_ARTICLE} from './ViewArticle.actions';
+import {CLEAR} from '_screens/Main/Main.actions';
 
 const defaultState = {
   article: {},
@@ -21,6 +22,7 @@ const handlers = {
       article: newArticle,
     };
   },
+  [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };
 

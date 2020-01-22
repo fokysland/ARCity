@@ -22,14 +22,3 @@ const getTokensFulfilled = ({accessToken, refreshToken}) => ({
   type: GET_TOKENS_FULFILLED,
   payload: {accessToken, refreshToken},
 });
-
-export const getTokens = (login, password) => async dispatch => {
-  const res = await tokens(login, password);
-  if (!res.ok) {
-    dispatch(getTokensRejected());
-    return Promise.reject();
-  } else {
-    dispatch(getTokensFulfilled(res.body));
-    return Promise.resolve();
-  }
-};

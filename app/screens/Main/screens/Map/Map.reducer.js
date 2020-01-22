@@ -1,12 +1,14 @@
 import {
-  FETCH_FULFILLED,
-  SET_LIKE,
-  SET_RANGE,
-  SET_SEARCH,
-  SET_FRIEND,
-  SET_OPENED,
-  SET_CATEGORY,
+  MAP_FETCH_FULFILLED,
+  MAP_SET_LIKE,
+  MAP_SET_RANGE,
+  MAP_SET_SEARCH,
+  MAP_SET_FRIEND,
+  MAP_SET_OPENED,
+  MAP_SET_CATEGORY,
+  MAP_SET_POSITION,
 } from './Map.actions';
+import {CLEAR} from '_screens/Main/Main.actions';
 
 const defaultState = {
   requests: [],
@@ -22,40 +24,49 @@ const defaultState = {
     ramp: true,
     other: true,
   },
+  position: {
+    longitude: 0,
+    latitude: 0,
+  },
 };
 
 const handlers = {
-  [FETCH_FULFILLED]: (state, requests) => ({
+  [MAP_FETCH_FULFILLED]: (state, requests) => ({
     ...state,
     requests,
   }),
-  [SET_SEARCH]: (state, search) => ({
+  [MAP_SET_SEARCH]: (state, search) => ({
     ...state,
     search,
   }),
-  [SET_RANGE]: (state, range) => ({
+  [MAP_SET_RANGE]: (state, range) => ({
     ...state,
     range,
   }),
-  [SET_LIKE]: state => ({
+  [MAP_SET_LIKE]: state => ({
     ...state,
     like: !state.like,
   }),
-  [SET_FRIEND]: state => ({
+  [MAP_SET_FRIEND]: state => ({
     ...state,
     friend: !state.friend,
   }),
-  [SET_CATEGORY]: (state, category) => ({
+  [MAP_SET_CATEGORY]: (state, category) => ({
     ...state,
     categories: {
       ...state.categories,
       [category]: !state.categories[category],
     },
   }),
-  [SET_OPENED]: state => ({
+  [MAP_SET_OPENED]: state => ({
     ...state,
     opened: !state.opened,
   }),
+  [MAP_SET_POSITION]: (state, position) => ({
+    ...state,
+    position,
+  }),
+  [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };
 

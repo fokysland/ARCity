@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
-import {View, TouchableOpacity, Image} from 'react-native';
+import {View, TouchableOpacity, Linking, Image} from 'react-native';
+
+import FastImage from 'react-native-fast-image';
 
 import {connect} from 'react-redux';
 
@@ -10,6 +12,8 @@ import TabStyles from './TabBar.styles';
 
 const tabBarBackground = require('_assets/images/tabBarContainer.png');
 const button = require('_assets/images/createButton.png');
+const arButton = require('_assets/images/arButton.png');
+const photoButton = require('_assets/images/photoButton.png');
 
 const TabBar = ({state, navigation, isVisible}) => {
   const [isOpened, setOpened] = useState(false);
@@ -34,7 +38,7 @@ const TabBar = ({state, navigation, isVisible}) => {
         </View>
         <View style={TabStyles.right}>
           <TabBarItem
-            routeName="Chats"
+            routeName="Profile"
             navigation={navigation}
             index={state.index}
           />
@@ -53,18 +57,20 @@ const TabBar = ({state, navigation, isVisible}) => {
               navigation.navigate('NewRequest');
               setOpened(!isOpened);
             }}>
-            <Image source={button} />
+            <Image source={photoButton} />
           </TouchableOpacity>
           <TouchableOpacity
             style={TabStyles.button}
             onPress={() => {
+              Linking.openURL('arcity-ar://newRequest');
               navigation.navigate('NewARRequest');
               setOpened(!isOpened);
             }}>
-            <Image source={button} />
+            <Image source={arButton} />
           </TouchableOpacity>
         </View>
       ) : null}
+
       <TouchableOpacity
         style={TabStyles.centralButton}
         onPress={() => setOpened(!isOpened)}>

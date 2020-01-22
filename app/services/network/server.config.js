@@ -1,4 +1,4 @@
-const serverAddress = 'http://10.21.136.172:3000';
+const serverAddress = 'http://10.21.83.104:3000';
 const apiPrefix = '/api/';
 
 export const API_VERSION = 'v1';

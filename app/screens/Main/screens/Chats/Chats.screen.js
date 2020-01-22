@@ -4,12 +4,15 @@ import {store} from '_redux/store';
 import {connect} from 'react-redux';
 import {fetchChats} from './Chats.actions';
 
+import useTabBar from '_hooks/useTabBar';
+
 import {FlatList} from 'react-native';
 import {Chat} from './components/index';
 
 import ChatsStyles from './Chats.styles';
 
-const ChatsScreen = ({chats}) => {
+const ChatsScreen = ({chats, navigation}) => {
+  useTabBar(true);
   useEffect(() => {
     store.dispatch(fetchChats());
   }, []);
@@ -25,6 +28,7 @@ const ChatsScreen = ({chats}) => {
           time={item.time}
           notificationCount={item.notificationCount}
           id={item.id}
+          onPress={() => navigation.navigate('Dialog', {})}
         />
       )}
       keyExtractor={item => item.id}

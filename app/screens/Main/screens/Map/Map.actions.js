@@ -1,5 +1,7 @@
 import {getRequests} from '_api/map.api';
 
+import Location from 'react-native-location';
+
 export const MAP_FETCH_FULFILLED = 'MAP_FETCH_FULFILLED';
 export const fetchFulfilled = data => ({
   type: MAP_FETCH_FULFILLED,
@@ -54,5 +56,24 @@ export const setCategory = category => ({
 
 export const MAP_SET_OPENED = 'MAP_SET_OPENED';
 export const setOpened = () => ({
-  type: SET_OPENED,
+  type: MAP_SET_OPENED,
 });
+
+export const MAP_SET_POSITION = 'MAP_SET_POSITION';
+export const setPosition = position => ({
+  type: MAP_SET_POSITION,
+  payload: position,
+});
+
+export const fetchPosition = () => async dispatch => {
+  try {
+    await Location.requestPermission({
+      ios: 'whenInUse',
+      android: {
+        detail: 'coarse',
+      },
+    });
+    const position = await Location.getLatestLocation();
+    dispatch(setPosition(position));
+  } catch (e) {}
+};

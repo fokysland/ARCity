@@ -1,6 +1,7 @@
 import React from 'react';
 
-import {View, Image, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
+import Image from 'react-native-fast-image';
 import {Header} from '_components/index';
 
 import {Categories, Text} from '_utils/index';

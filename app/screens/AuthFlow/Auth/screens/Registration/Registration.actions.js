@@ -45,6 +45,11 @@ export const setRepeatedPassword = password => ({
   payload: getTextValue(password),
 });
 
+export const REGISTRATION_CLEAR = 'REGISTRATION_CLEAR';
+export const registrationClear = () => ({
+  type: REGISTRATION_CLEAR,
+});
+
 export const SET_REGISTER_FULFILLED = 'SET_REGISTER_FULFILLED';
 export const setRegisterFulfilled = () => ({
   type: SET_REGISTER_FULFILLED,
@@ -69,6 +74,7 @@ export const register = ({
     if (tokensRes.ok) {
       dispatch(saveAccessToken(tokensRes.body.accessToken));
       dispatch(saveRefreshToken(tokensRes.body.refreshToken));
+      dispatch(registrationClear());
       dispatch(goToMain());
     } else {
       dispatch(setRegisterRejected());

@@ -7,7 +7,6 @@ import {
   setDescription,
   setName,
   setPosition,
-  setUri,
 } from '_screens/Main/screens/NewRequest/NewRequest.actions';
 import {connect} from 'react-redux';
 import {store} from '_redux/store';
@@ -19,16 +18,18 @@ import {TextInput} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import NewARRequestStyles from './NewARRequest.styles';
+import {clearNewARRequest} from '_screens/Main/screens/NewARRequest/NewARRequest.actions';
 
-const NewARRequest = ({uri, name, description, navigation}) => {
-  // const route = useRoute();
-  // const {arCategory, arUri} = route.params;
-  useTabBar();
+const NewARRequest = ({name, description, navigation}) => {
+  useTabBar(false);
+  const {
+    params: {type: arCategory, uri: arUri},
+  } = useRoute();
   return (
     <KeyboardAwareScrollView
       enableOnAndroid={true}
       contentContainerStyle={NewARRequestStyles.container}>
-      <Image style={NewARRequestStyles.picker} source={{uri}} />
+      <Image source={{uri: 'file:///storage/emulated/0/' + arUri}} />
       <TextInput
         placeholder="Как меня назовешь?"
         placeholderTextColor={NewARRequestStyles.placeholder.color}
@@ -50,6 +51,16 @@ const NewARRequest = ({uri, name, description, navigation}) => {
         underlayColor="#000"
         activeOpacity={0.8}
         onPress={() => {
+          store.dispatch(
+            postRequest({
+              name,
+              description,
+              uri: arUri,
+              category: arCategory,
+              position,
+            }),
+          );
+          store.dispatch(clearNewARRequest());
           navigation.navigate('Feed');
         }}>
         <Text style={NewARRequestStyles.sendButtonText}>Опубликуй меня!</Text>

@@ -1,13 +1,13 @@
-import {SET_REQUEST} from './ViewRequest.actions';
+import {VIEW_REQUEST_SET_REQUEST} from './ViewRequest.actions';
 import {getReadableType} from '_utils/categoties';
+import {CLEAR} from '_screens/Main/Main.actions';
 
 const defaultState = {
   request: {},
 };
 
 const handlers = {
-  [SET_REQUEST]: (state, request) => {
-    console.log(request);
+  [VIEW_REQUEST_SET_REQUEST]: (state, request) => {
     const newRequest = {
       text: request.about,
       likes: request.likes,
@@ -25,6 +25,7 @@ const handlers = {
       request: newRequest,
     };
   },
+  [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };
 

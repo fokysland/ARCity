@@ -1,4 +1,5 @@
 import {
+  REGISTRATION_CLEAR,
   REGISTRATION_SET_EMAIL,
   REGISTRATION_SET_NAME,
   REGISTRATION_SET_PASSWORD,
@@ -6,6 +7,7 @@ import {
   REGISTRATION_SET_SURNAME,
   REGISTRATION_SET_URI,
 } from './Registration.actions';
+import {CLEAR} from '_screens/Main/Main.actions';
 
 const defaultState = {
   email: '',
@@ -41,6 +43,8 @@ const handlers = {
     ...state,
     uri,
   }),
+  [REGISTRATION_CLEAR]: () => defaultState,
+  [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };
 

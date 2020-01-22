@@ -12,7 +12,7 @@ const LoadingNavigation = ({isLoading}) => {
     if (isLoading) {
       const doSync = async () => {
         const res = await sync();
-        if (res.reauth) {
+        if (res.reauth || res.error) {
           store.dispatch(goToAuth());
         } else {
           store.dispatch(goToMain());

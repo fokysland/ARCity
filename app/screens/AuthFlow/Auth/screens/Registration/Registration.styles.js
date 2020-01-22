@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 import {Colors, Helpers, Typography} from '_styles/index';
 
 const registrationStyles = StyleSheet.create({
+  background: {
+    width: '100%',
+    height: '100%',
+  },
   container: {
     paddingHorizontal: Helpers.scaleSize(82),
     justifyContent: 'center',
@@ -61,10 +65,6 @@ const registrationStyles = StyleSheet.create({
   gotoAuthContainer: {
     alignSelf: 'center',
     marginTop: Helpers.verticalScale(18),
-  },
-  background: {
-    width: '100%',
-    height: '100%',
   },
 });
 

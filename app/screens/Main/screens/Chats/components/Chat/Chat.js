@@ -2,7 +2,9 @@ import React from 'react';
 
 import ChatItemStyles from './Chat.styles';
 import {Header} from '_components/index';
-import {View, Image, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
+
+import Image from 'react-native-fast-image';
 
 const Chat = ({
   avatar,

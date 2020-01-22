@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import FeedNavigation from '_screens/Main/screens/Feed/Feed.navigation';
 import MapNavigation from '_screens/Main/screens/Map/Map.navigation';
-import ChatsNavigation from '_screens/Main/screens/Chats/Chats.navigation';
+import ProfileNavigation from '_screens/Main/screens/Profile/Profile.navigation';
 import Menu from '_screens/Main/screens/Menu/Menu';
 
 import {TabBar} from './components/index';
@@ -26,7 +26,7 @@ const MainNavigation = () => {
           ),
         }}
       />
-      <Screen name="Chats" component={ChatsNavigation} />
+      <Screen name="Profile" component={ProfileNavigation} />
       <Screen name="Menu" component={Menu} />
     </Navigator>
   );

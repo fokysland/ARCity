@@ -5,7 +5,7 @@ import {Header} from '_components';
 import {View} from 'react-native';
 
 const MessageFrame = ({isMy, isLast, msgContent}) => {
-  let borderType = () => {
+  const borderType = () => {
     if (isLast) {
       if (isMy) {
         return MessageFrameStyles.myLastMessage;

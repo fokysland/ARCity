@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 
 import {useFocusEffect} from '@react-navigation/native';
 
 import {Keyboard} from 'react-native';
 
 import {store} from '_redux/store';
-import {fetchRequests} from '../../Map.actions';
+import {fetchPosition, fetchRequests} from '../../Map.actions';
 import {connect} from 'react-redux';
 
 import BasicMapView, {Marker} from 'react-native-maps';
@@ -13,14 +13,18 @@ import BasicMapView, {Marker} from 'react-native-maps';
 import MapViewStyles from './MapView.styles';
 import {mapConfig} from './Map.config';
 
-const MapView = ({requests, navigation}) => {
+import PickerIcon from '_assets/images/picker.svg';
+
+const MapView = ({requests, navigation, position}) => {
   useFocusEffect(
-    React.useCallback(() => {
+    useCallback(() => {
       store.dispatch(fetchRequests());
+      store.dispatch(fetchPosition());
     }, []),
   );
   return (
     <BasicMapView
+      initialRegion={{...position, latitudeDelta: 0.01, longitudeDelta: 0.01}}
       onPress={() => Keyboard.dismiss()}
       showsCompass={false}
       style={MapViewStyles.map}
@@ -34,8 +38,9 @@ const MapView = ({requests, navigation}) => {
               requestId: uuid,
             })
           }
-          key={`${longitude}-${latitude}-${(Math.random() * 100).toFixed(3)}`}
-        />
+          key={`${longitude}-${latitude}-${(Math.random() * 100).toFixed(3)}`}>
+          <PickerIcon />
+        </Marker>
       ))}
     </BasicMapView>
   );
@@ -43,10 +48,11 @@ const MapView = ({requests, navigation}) => {
 
 const mapStateToProps = ({
   main: {
-    map: {requests},
+    map: {requests, position},
   },
 }) => ({
   requests,
+  position,
 });
 
 export default connect(mapStateToProps)(MapView);

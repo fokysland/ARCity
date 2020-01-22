@@ -4,15 +4,17 @@ import {
   NEW_REQUEST_SET_POSITION,
   NEW_REQUEST_SET_NAME,
   NEW_REQUEST_SET_URI,
+  CLEAR_NEW_REQUEST,
 } from './NewRequest.actions';
+import {CLEAR} from '_screens/Main/Main.actions';
 
 const defaultState = {
   category: 'bench',
   description: '',
   name: '',
   position: {
-    longitude: 55,
-    latitude: 33,
+    longitude: 0,
+    latitude: 0,
   },
   uri: {},
 };
@@ -38,6 +40,8 @@ const handlers = {
     ...state,
     uri,
   }),
+  [CLEAR_NEW_REQUEST]: () => defaultState,
+  [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };
 

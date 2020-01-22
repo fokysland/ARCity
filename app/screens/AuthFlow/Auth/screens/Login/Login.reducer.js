@@ -1,4 +1,9 @@
-import {SET_EMAIL, SET_PASSWORD} from './Login.actions';
+import {
+  LOGIN_SET_EMAIL,
+  LOGIN_SET_PASSWORD,
+  LOGIN_CLEAR,
+} from './Login.actions';
+import {CLEAR} from '_screens/Main/Main.actions';
 
 const defaultState = {
   email: '',
@@ -6,14 +11,16 @@ const defaultState = {
 };
 
 const handlers = {
-  [SET_EMAIL]: (state, email) => ({
+  [LOGIN_SET_EMAIL]: (state, email) => ({
     ...state,
     email,
   }),
-  [SET_PASSWORD]: (state, password) => ({
+  [LOGIN_SET_PASSWORD]: (state, password) => ({
     ...state,
     password,
   }),
+  [LOGIN_CLEAR]: () => defaultState,
+  [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };
 

@@ -1,5 +1,6 @@
 import {getTextValue} from '_utils/text';
 import {createRequest} from '_api/request.api';
+import Location from 'react-native-location';
 
 export const NEW_REQUEST_SET_CATEGORY = 'NEW_REQUEST_SET_CATEGORY';
 export const setCategory = category => ({
@@ -30,6 +31,24 @@ export const setUri = uri => ({
   type: NEW_REQUEST_SET_URI,
   payload: uri,
 });
+
+export const CLEAR_NEW_REQUEST = 'CLEAR_NEW_REQUEST';
+export const clearNewRequest = () => ({
+  type: CLEAR_NEW_REQUEST,
+});
+
+export const fetchPosition = () => async dispatch => {
+  try {
+    await Location.requestPermission({
+      ios: 'whenInUse',
+      android: {
+        detail: 'coarse',
+      },
+    });
+    const position = await Location.getLatestLocation();
+    dispatch(setPosition(position));
+  } catch (e) {}
+};
 
 export const postRequest = ({
   name,

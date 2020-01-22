@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 
-import useTabBar from '_hooks/useTabBar';
 import {store} from '_redux/store';
 import {connect} from 'react-redux';
 import {fetchRequest} from './ViewRequest.actions';
+import useTabBar from '_hooks/useTabBar';
 
-import {View, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import Image from 'react-native-fast-image';
 import {Header} from '_components/index';
 
 import ViewRequestStyles from './ViewRequest.styles';
@@ -13,6 +14,7 @@ import ViewRequestStyles from './ViewRequest.styles';
 import LikeIcon from '_assets/images/like.svg';
 import DislikeIcon from '_assets/images/dislike.svg';
 import ShareIcon from '_assets/images/share.svg';
+import CrossIcon from '_assets/images/cross.svg';
 
 const ViewRequest = ({
   navigation,
@@ -30,7 +32,7 @@ const ViewRequest = ({
     params: {requestId},
   },
 }) => {
-  useTabBar();
+  useTabBar(false);
   useEffect(() => {
     store.dispatch(fetchRequest(requestId));
   }, [requestId]);
@@ -41,7 +43,7 @@ const ViewRequest = ({
       <Header
         text={title}
         bold
-        black
+        blacke
         size={24}
         style={ViewRequestStyles.title}
       />
@@ -57,6 +59,7 @@ const ViewRequest = ({
         black
         size={14}
       />
+      <CrossIcon />
       <Header text={type} style={ViewRequestStyles.type} black size={14} />
       <View style={ViewRequestStyles.decoration}>
         <View style={ViewRequestStyles.line} />

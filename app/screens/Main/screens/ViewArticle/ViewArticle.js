@@ -29,7 +29,7 @@ const ViewArticle = ({
     params: {articleId},
   },
 }) => {
-  useTabBar();
+  useTabBar(false);
   useEffect(() => {
     store.dispatch(fetchArticle(articleId));
   }, [articleId]);

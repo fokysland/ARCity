@@ -5,6 +5,7 @@ import {
   goToMain,
   setLoading,
 } from '_redux/global/properties/properties.actions';
+import {saveAccessToken, saveRefreshToken} from '_redux/global/actions';
 
 export const LOGIN_SET_EMAIL = 'LOGIN_SET_EMAIL';
 export const setEmail = email => ({
@@ -18,6 +19,11 @@ export const setPassword = password => ({
   payload: getTextValue(password),
 });
 
+export const LOGIN_CLEAR = 'LOGIN_CLEAR';
+export const loginClear = () => ({
+  type: LOGIN_CLEAR,
+});
+
 export const SET_LOGIN_FULFILLED = 'SET_LOGIN_FULFILLED';
 export const setLoginFulfilled = () => ({
   type: SET_LOGIN_FULFILLED,
@@ -27,11 +33,14 @@ export const setLoginRejected = () => ({
   type: SET_LOGIN_REJECTED,
 });
 
-export const login = ({email, password}) => async dispatch => {
+export const login = (email, password) => async dispatch => {
   dispatch(setLoading(true));
   const res = await tokens(email, password);
   if (res.ok) {
+    dispatch(saveRefreshToken(res.body.refreshToken));
+    dispatch(saveAccessToken(res.body.accessToken));
     dispatch(setLoginFulfilled());
+    dispatch(loginClear());
     dispatch(goToMain());
   } else {
     dispatch(setLoginRejected());

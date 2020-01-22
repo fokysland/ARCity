@@ -1,4 +1,5 @@
 import {FEED_SET_CONTENT} from '_screens/Main/screens/Feed/Feed.actions';
+import {CLEAR} from '_screens/Main/Main.actions';
 
 const defaultState = {
   content: [],
@@ -9,6 +10,7 @@ const handlers = {
     ...state,
     content,
   }),
+  [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };
 

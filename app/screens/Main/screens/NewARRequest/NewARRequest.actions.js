@@ -31,6 +31,11 @@ export const setUri = uri => ({
   payload: uri,
 });
 
+export const CLEAR_NEW_AR_REQUEST = 'CLEAR_NEW_AR_REQUEST';
+export const clearNewARRequest = () => ({
+  type: CLEAR_NEW_AR_REQUEST,
+});
+
 export const postRequest = ({
   name,
   category,
@@ -48,6 +53,7 @@ export const postRequest = ({
   if (!res.ok) {
     return Promise.reject();
   } else {
+    dispatch(clearNewARRequest());
     return Promise.resolve();
   }
 };

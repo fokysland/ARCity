@@ -2,12 +2,8 @@ import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
+import allScreens from '_screens/Main/components/allScreens';
 import FeedScreen from './Feed.screen';
-import ViewArticle from '../ViewArticle/ViewArticle';
-import ViewRequest from '../ViewRequest/ViewRequest';
-import NewRequest from '../NewRequest/NewRequest';
-import NewARRequest from '../NewARRequest/NewARRequest';
-import NewRequestPicker from '../NewRequestPicker/NewRequestPicker';
 
 import {Header} from '_components/index';
 
@@ -32,15 +28,7 @@ const FeedNavigation = () => {
           ),
         }}
       />
-      <Screen name="ViewArticle" component={ViewArticle} />
-      <Screen name="ViewRequest" component={ViewRequest} />
-      <Screen name="NewRequest" component={NewRequest} />
-      <Screen
-        name="NewRequestPicker"
-        component={NewRequestPicker}
-        options={{headerShown: false}}
-      />
-      <Screen name="NewARRequest" component={NewARRequest} />
+      {allScreens().map(item => item)}
     </Navigator>
   );
 };

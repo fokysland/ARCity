@@ -6,7 +6,7 @@ import TabBarItemStyles from './TabBarItem.styles';
 
 import FeedIcon from '_assets/images/feed.svg';
 import MapIcon from '_assets/images/map.svg';
-import ChatsIcon from '_assets/images/chats.svg';
+import ProfileIcon from '_assets/images/profile.svg';
 import MenuIcon from '_assets/images/menu.svg';
 import {additionalColor, primaryColor} from '_styles/colors';
 
@@ -17,8 +17,8 @@ const mapRouteToIcon = {
   Map: i => (
     <MapIcon style={{color: i === 1 ? primaryColor : additionalColor}} />
   ),
-  Chats: i => (
-    <ChatsIcon style={{color: i === 2 ? primaryColor : additionalColor}} />
+  Profile: i => (
+    <ProfileIcon style={{color: i === 2 ? primaryColor : additionalColor}} />
   ),
   Menu: i => (
     <MenuIcon style={{color: i === 3 ? primaryColor : additionalColor}} />

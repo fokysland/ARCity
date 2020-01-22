@@ -4,13 +4,9 @@ import {store} from '_redux/store';
 import {connect} from 'react-redux';
 import {setEmail, setPassword, login} from './Login.actions';
 
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ImageBackground,
-} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
+
+import Image from 'react-native-fast-image';
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -51,7 +47,7 @@ const LoginScreen = ({email, password, navigation}) => {
           underlayColor="#000"
           activeOpacity={0.8}
           onPress={() => {
-            store.dispatch(login({email, password}));
+            store.dispatch(login(email, password));
           }}>
           <Text style={loginStyles.loginText}>Войти</Text>
         </TouchableOpacity>
@@ -65,9 +61,12 @@ const LoginScreen = ({email, password, navigation}) => {
   );
 };
 
-const mapStateToProps = ({auth: {login: email, password}}) => ({
-  email,
-  password,
-});
+const mapStateToProps = ({
+  auth: {
+    login: {email, password},
+  },
+}) => {
+  return {email, password};
+};
 
 export default connect(mapStateToProps)(LoginScreen);

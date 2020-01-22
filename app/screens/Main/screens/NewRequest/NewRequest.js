@@ -1,9 +1,8 @@
-import React from 'react';
-
-import {useFocusEffect} from '@react-navigation/native';
+import React, {useEffect} from 'react';
 
 import {getCategoriesWithText} from '_utils/categoties';
 import {
+  clearNewRequest,
   postRequest,
   setCategory,
   setDescription,
@@ -33,7 +32,7 @@ const NewRequest = ({
   description,
   navigation,
 }) => {
-  useTabBar();
+  useTabBar(false);
   return (
     <KeyboardAwareScrollView
       enableOnAndroid={true}
@@ -84,6 +83,7 @@ const NewRequest = ({
           store.dispatch(
             postRequest({name, position, category, uri, description}),
           );
+          store.dispatch(clearNewRequest());
           navigation.navigate('Feed');
         }}>
         <Text style={NewRequestStyles.sendButtonText}>Опубликуй меня!</Text>

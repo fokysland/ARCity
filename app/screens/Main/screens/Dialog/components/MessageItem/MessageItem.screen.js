@@ -2,25 +2,19 @@ import React from 'react';
 
 import MessageItemStyles from './MessageItem.styles';
 import {Header} from '_components';
-import {View, Image} from 'react-native';
+import {View} from 'react-native';
+import Image from 'react-native-fast-image';
 import MessageFrame from '../MessageFrame/MessageFrame.screen';
 
 const MessageItem = ({isMy, isLast, msgContent, time, authorAvatar}) => {
-  let setAvatarShow = () => {
+  const setAvatarShow = () => {
     if (!isMy && isLast) {
       return <Image style={MessageItemStyles.avatar} source={authorAvatar} />;
     }
     return null;
   };
 
-  let setMarginForLast = () => {
-    if (isLast) {
-      return MessageItemStyles.bottomMarginForLast;
-    }
-    return null;
-  };
-
-  let setFrameAndTimePosisition = () => {
+  const setFrameAndTimePosition = () => {
     if (isMy) {
       return (
         <>
@@ -38,22 +32,16 @@ const MessageItem = ({isMy, isLast, msgContent, time, authorAvatar}) => {
     );
   };
 
-  let setFrameAlign = () => {
-    if (isMy) {
-      return {justifyContent: 'space-between'};
-    }
-  };
-
   return (
     <View
       style={[
         MessageItemStyles.mainContainer,
-        setFrameAlign(),
-        setMarginForLast(),
+        MessageItemStyles.setFrameAlign(isMy),
+        MessageItemStyles.setMarginForLast(isLast),
       ]}>
       <View style={MessageItemStyles.avatarContainer}>{setAvatarShow()}</View>
       <View style={MessageItemStyles.frameContainer}>
-        {setFrameAndTimePosisition()}
+        {setFrameAndTimePosition()}
       </View>
     </View>
   );

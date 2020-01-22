@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {clear} from '_screens/Main/Main.actions';
 import {store} from '_redux/store';
 import {goToAuth} from '_redux/global/properties/properties.actions';
 
@@ -12,7 +13,10 @@ const Menu = ({navigation}) => {
     <View style={MenuStyles.container}>
       <TouchableOpacity
         style={MenuStyles.button}
-        onPress={() => store.dispatch(goToAuth())}>
+        onPress={() => {
+          store.dispatch(clear());
+          store.dispatch(goToAuth());
+        }}>
         <Text>Выход</Text>
       </TouchableOpacity>
     </View>

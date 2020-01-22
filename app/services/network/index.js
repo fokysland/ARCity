@@ -179,13 +179,6 @@ function reqReject(res) {
 }
 
 //middlewares
-function checkForNewToken(res) {
-  if (res.body.meta && res.body.meta.session_token)
-    //save new token
-    store.dispatch(saveAccessToken(res.body.meta.session_token));
-  return res;
-}
-
 function requestLogger(res) {
   if (REQUEST_LOGGING_ENABLED) {
     console.log(res.status + ' ' + res.url);

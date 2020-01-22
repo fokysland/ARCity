@@ -11,8 +11,10 @@ import {FlatList} from 'react-native';
 import {Article, Request} from './components/index';
 
 import FeedStyles from './Feed.styles';
+import useTabBar from '_hooks/useTabBar';
 
 const FeedScreen = ({content, navigation}) => {
+  useTabBar(true);
   useFocusEffect(
     React.useCallback(() => {
       store.dispatch(fetchContent());

@@ -5,7 +5,7 @@ import {Helpers, Colors, Typography} from '_styles/index';
 const style = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: Helpers.verticalScale(30),
+    bottom: Helpers.verticalScale(17),
     alignSelf: 'center',
     justifyContent: 'center',
     height: Helpers.scaleSize(80),
@@ -36,7 +36,7 @@ const style = StyleSheet.create({
   createButtonContainer: {
     position: 'absolute',
     alignSelf: 'center',
-    top: Helpers.verticalScale(-25),
+    bottom: Helpers.verticalScale(65),
   },
   createButtonImage: {
     width: Helpers.scaleSize(55),
@@ -45,9 +45,8 @@ const style = StyleSheet.create({
     justifyContent: 'center',
   },
   photoRequestButtonContainer: {
-    zIndex: 10,
     position: 'absolute',
-    top: Helpers.verticalScale(-25),
+    bottom: Helpers.verticalScale(65),
     alignSelf: 'center',
   },
   photoRequestButton: {
@@ -55,13 +54,11 @@ const style = StyleSheet.create({
     height: Helpers.scaleSize(75),
   },
   arRequestButtonContainer: {
-    zIndex: 10,
     position: 'absolute',
-    top: Helpers.verticalScale(-25),
+    bottom: Helpers.verticalScale(65),
     alignSelf: 'center',
   },
   arRequestButton: {
-    zIndex: 10,
     width: Helpers.scaleSize(75),
     height: Helpers.scaleSize(75),
   },
@@ -73,7 +70,7 @@ export const AR_RIGHT_POSITION = Helpers.scaleSize(33);
 export const AR_MID_POSITION = 0;
 
 export const ACTION_BUTTONS_BOTTOM_POSITION = 0;
-export const ACTION_BUTTONS_TOP_POSITION = Helpers.verticalScale(-60);
+export const ACTION_BUTTONS_TOP_POSITION = Helpers.verticalScale(-40);
 
 export const CROSS_ANIMATION_TIME_MS = 300;
 export const CROSS_CLOSED_ROTATION = '0deg';

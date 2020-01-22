@@ -106,8 +106,8 @@ export const getActionsAnimations = setActionsActive => {
 
   const getActionButtonsOpacity = () => {
     return actionsAnimatedValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 1],
+      inputRange: [0, 0.3, 1],
+      outputRange: [0, 0, 1],
     });
   };
 

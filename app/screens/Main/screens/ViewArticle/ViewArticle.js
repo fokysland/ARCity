@@ -52,23 +52,23 @@ const ViewArticle = ({
       </View>
       <Text style={ViewArticleStyles.text}>{text}</Text>
       <View style={ViewArticleStyles.controls}>
-        <TouchableOpacity style={ViewArticleStyles.share} activeOpacity={0.8}>
-          <ShareIcon height={ViewArticleStyles.share.height} />
-        </TouchableOpacity>
-        <TouchableOpacity style={ViewArticleStyles.likes} activeOpacity={0.8}>
-          <>
-            <LikeIcon />
-            <Text style={ViewArticleStyles.like}>{likes}</Text>
-          </>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={ViewArticleStyles.dislikes}
-          activeOpacity={0.8}>
-          <>
-            <DislikeIcon />
-            <Text style={ViewArticleStyles.dislike}>{dislikes}</Text>
-          </>
-        </TouchableOpacity>
+        {/*<TouchableOpacity style={ViewArticleStyles.share} activeOpacity={0.8}>*/}
+        {/*  <ShareIcon height={ViewArticleStyles.share.height} />*/}
+        {/*</TouchableOpacity>*/}
+        {/*<TouchableOpacity style={ViewArticleStyles.likes} activeOpacity={0.8}>*/}
+        {/*  <>*/}
+        {/*    <LikeIcon />*/}
+        {/*    <Text style={ViewArticleStyles.like}>{likes}</Text>*/}
+        {/*  </>*/}
+        {/*</TouchableOpacity>*/}
+        {/*<TouchableOpacity*/}
+        {/*  style={ViewArticleStyles.dislikes}*/}
+        {/*  activeOpacity={0.8}>*/}
+        {/*  <>*/}
+        {/*    <DislikeIcon />*/}
+        {/*    <Text style={ViewArticleStyles.dislike}>{dislikes}</Text>*/}
+        {/*  </>*/}
+        {/*</TouchableOpacity>*/}
       </View>
     </ScrollView>
   );

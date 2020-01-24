@@ -1,4 +1,8 @@
-import {VIEW_REQUEST_SET_REQUEST} from './ViewRequest.actions';
+import {
+  VIEW_REQUEST_SET_REQUEST,
+  VIEW_REQUEST_INCREASE_LIKES,
+  VIEW_REQUEST_INCREASE_DISLIKES,
+} from './ViewRequest.actions';
 import {getReadableType} from '_utils/categoties';
 import {CLEAR} from '_screens/Main/Main.actions';
 
@@ -25,6 +29,20 @@ const handlers = {
       request: newRequest,
     };
   },
+  [VIEW_REQUEST_INCREASE_LIKES]: state => ({
+    ...state,
+    request: {
+      ...state.request,
+      likes: state.request.likes + 1,
+    },
+  }),
+  [VIEW_REQUEST_INCREASE_DISLIKES]: state => ({
+    ...state,
+    request: {
+      ...state.request,
+      dislikes: state.request.dislikes + 1,
+    },
+  }),
   [CLEAR]: () => defaultState,
   DEFAULT: state => state,
 };

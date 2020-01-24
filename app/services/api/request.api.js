@@ -26,3 +26,7 @@ export const createRequest = ({
 export const getRequest = id => {
   return get('/map/aboutRequest', {uuid: id});
 };
+
+export const shareRequest = id => {
+  return post(`/requests/post/${id}`);
+};

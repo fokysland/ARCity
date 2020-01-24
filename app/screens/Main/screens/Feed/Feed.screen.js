@@ -4,17 +4,20 @@ import {store} from '_redux/store';
 import {connect} from 'react-redux';
 import {fetchContent} from './Feed.actions';
 
-import {FlatList} from 'react-native';
+import useTabBar from '_hooks/useTabBar';
 
+import {FlatList} from 'react-native';
 import {Article, Request} from './components/index';
 
 import FeedStyles from './Feed.styles';
-import useTabBar from '_hooks/useTabBar';
 
 const FeedScreen = ({content, navigation}) => {
   useTabBar(true);
   useEffect(() => {
-    store.dispatch(fetchContent());
+    const interval = setInterval(() => {
+      store.dispatch(fetchContent());
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   return (

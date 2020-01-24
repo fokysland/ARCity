@@ -5,7 +5,7 @@ import {Helpers, Colors, Typography} from '_styles/index';
 const style = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: Helpers.verticalScale(17),
+    bottom: Helpers.verticalScale(12),
     alignSelf: 'center',
     justifyContent: 'center',
     height: Helpers.scaleSize(80),
@@ -36,7 +36,7 @@ const style = StyleSheet.create({
   createButtonContainer: {
     position: 'absolute',
     alignSelf: 'center',
-    bottom: Helpers.verticalScale(65),
+    bottom: Helpers.verticalScale(60),
   },
   createButtonImage: {
     width: Helpers.scaleSize(55),
@@ -46,7 +46,7 @@ const style = StyleSheet.create({
   },
   photoRequestButtonContainer: {
     position: 'absolute',
-    bottom: Helpers.verticalScale(65),
+    bottom: Helpers.verticalScale(60),
     alignSelf: 'center',
   },
   photoRequestButton: {
@@ -55,7 +55,7 @@ const style = StyleSheet.create({
   },
   arRequestButtonContainer: {
     position: 'absolute',
-    bottom: Helpers.verticalScale(65),
+    bottom: Helpers.verticalScale(60),
     alignSelf: 'center',
   },
   arRequestButton: {
@@ -72,7 +72,7 @@ export const AR_MID_POSITION = 0;
 export const ACTION_BUTTONS_BOTTOM_POSITION = 0;
 export const ACTION_BUTTONS_TOP_POSITION = Helpers.verticalScale(-40);
 
-export const CROSS_ANIMATION_TIME_MS = 300;
+export const CROSS_ANIMATION_TIME_MS = 200;
 export const CROSS_CLOSED_ROTATION = '0deg';
 export const CROSS_OPENED_ROTATION = '45deg';
 

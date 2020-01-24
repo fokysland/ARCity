@@ -19,6 +19,7 @@ import {TextInput} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import NewARRequestStyles from './NewARRequest.styles';
+import {fetchContent} from '_screens/Main/screens/Feed/Feed.actions';
 
 const NewARRequest = ({position, name, description, navigation}) => {
   useFocusEffect(

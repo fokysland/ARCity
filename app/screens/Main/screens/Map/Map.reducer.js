@@ -25,8 +25,8 @@ const defaultState = {
     other: true,
   },
   position: {
-    longitude: 0,
-    latitude: 0,
+    longitude: 55,
+    latitude: 37,
   },
 };
 

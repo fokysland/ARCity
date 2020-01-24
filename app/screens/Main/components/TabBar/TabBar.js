@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {
   View,
@@ -9,9 +9,9 @@ import {
   ImageBackground,
 } from 'react-native';
 
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-import { TabBarItem } from '_screens/Main/components';
+import {TabBarItem} from '_screens/Main/components';
 
 import TabStyles from './TabBar.styles';
 import {
@@ -35,7 +35,7 @@ const AnimatedTouchableOpacity = Animated.createAnimatedComponent(
   TouchableOpacity,
 );
 
-const TabBar = ({ state, navigation, isVisible }) => {
+const TabBar = ({state, navigation, isVisible}) => {
   const [actionsActive, setActionsActive] = React.useState(false);
   const [isOpened, setOpened] = useState(false);
 
@@ -104,54 +104,66 @@ const TabBar = ({ state, navigation, isVisible }) => {
         </View>
       </AnimatedImageBackground>
 
-      {/* Buttons */}
-      {
-        actionsActive && (
-          <AnimatedTouchableOpacity
-            onPress={() => { }}
-            style={[
-              TabStyles.photoRequestButtonContainer,
-              {
-                transform: [
-                  {
-                    translateX: actionAnimations.getPhotoButtonXTranslate(),
-                  },
-                  {
-                    translateY: actionAnimations.getActionsYTranslation(),
-                  },
-                ],
-                opacity: actionAnimations.getActionButtonsOpacity(),
-              },
-            ]}>
-            <Image source={photoButton} style={TabStyles.photoRequestButton} />
-          </AnimatedTouchableOpacity>
-        )
-      }
+      {actionsActive && (
+        <AnimatedTouchableOpacity
+          onPress={() => {
+            navigation.navigate('NewRequest');
+            setOpened(!isOpened);
+          }}
+          style={[
+            TabStyles.photoRequestButtonContainer,
+            {
+              transform: [
+                {
+                  translateX: actionAnimations.getPhotoButtonXTranslate(),
+                },
+                {
+                  translateY: actionAnimations.getActionsYTranslation(),
+                },
+              ],
+              opacity: actionAnimations.getActionButtonsOpacity(),
+            },
+          ]}>
+          <Image source={photoButton} style={TabStyles.photoRequestButton} />
+        </AnimatedTouchableOpacity>
+      )}
 
-      {
-        actionsActive && (
-          <AnimatedTouchableOpacity
-            style={[
-              TabStyles.arRequestButtonContainer,
-              {
-                transform: [
-                  {
-                    translateX: actionAnimations.getARButtonXTranslate(),
-                  },
-                  {
-                    translateY: actionAnimations.getActionsYTranslation(),
-                  },
-                ],
-                opacity: actionAnimations.getActionButtonsOpacity(),
-              },
-            ]}>
-            <Image source={arButton} style={TabStyles.arRequestButton} />
-          </AnimatedTouchableOpacity>
-        )
-      }
+      {actionsActive && (
+        <AnimatedTouchableOpacity
+          style={[
+            TabStyles.arRequestButtonContainer,
+            {
+              transform: [
+                {
+                  translateX: actionAnimations.getARButtonXTranslate(),
+                },
+                {
+                  translateY: actionAnimations.getActionsYTranslation(),
+                },
+              ],
+              opacity: actionAnimations.getActionButtonsOpacity(),
+            },
+          ]}
+          onPress={() => {
+            Linking.openURL('arcity-ar://newRequest');
+            navigation.navigate('NewARRequest');
+            setOpened(!isOpened);
+          }}>
+          <Image source={arButton} style={TabStyles.arRequestButton} />
+        </AnimatedTouchableOpacity>
+      )}
 
       <TouchableOpacity
-        style={TabStyles.createButtonContainer}
+        style={[
+          TabStyles.createButtonContainer,
+          {
+            transform: [
+              {
+                translateY: tabBarAnimations.getTabBarTranslate(),
+              },
+            ],
+          },
+        ]}
         onPress={() => setOpened(!isOpened)}>
         <ImageBackground
           source={centralButton}
@@ -174,7 +186,7 @@ const TabBar = ({ state, navigation, isVisible }) => {
 
 const mapStateToProps = ({
   main: {
-    common: { isVisible },
+    common: {isVisible},
   },
 }) => ({
   isVisible,

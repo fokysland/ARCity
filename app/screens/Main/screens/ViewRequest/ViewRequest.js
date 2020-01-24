@@ -1,4 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+
+import io from 'socket.io-client';
+import {serverAddress} from '_services/network/server.config';
 
 import {store} from '_redux/store';
 import {connect} from 'react-redux';
@@ -15,6 +18,18 @@ import LikeIcon from '_assets/images/like.svg';
 import DislikeIcon from '_assets/images/dislike.svg';
 import ShareIcon from '_assets/images/share.svg';
 import CrossIcon from '_assets/images/cross.svg';
+import {
+  increaseLikes,
+  increaseDislikes,
+  share,
+} from '_screens/Main/screens/ViewRequest/ViewRequest.actions';
+import {Colors} from '_styles/index';
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 const ViewRequest = ({
   navigation,
@@ -32,11 +47,37 @@ const ViewRequest = ({
     params: {requestId},
   },
 }) => {
-  console.log(authorPhoto);
+  const [socket, setSocket] = useState(null);
+  const [isLiked, setLiked] = useState(false);
+
   useTabBar(false);
+
   useEffect(() => {
     store.dispatch(fetchRequest(requestId));
   }, [requestId]);
+
+  useEffect(() => {
+    const newSocket = io(
+      `${serverAddress}/?socketId=${getRandomInt(100, 100000)}&accessToken=${
+        store.getState().global.tokens.accessToken
+      }`,
+      {
+        reconnection: true,
+        reconnectionDelay: 500,
+        jsonp: false,
+        reconnectionAttempts: Infinity,
+        transports: ['websocket'],
+      },
+    );
+
+    newSocket.on('connect', function() {
+      console.log('connected');
+    });
+    newSocket.on('liked', () => store.dispatch(increaseLikes()));
+    newSocket.on('disliked', () => store.dispatch(increaseDislikes()));
+    setSocket(newSocket);
+    return () => newSocket.disconnect();
+  }, []);
 
   return (
     <ScrollView contentContainerStyle={ViewRequestStyles.container}>
@@ -60,7 +101,6 @@ const ViewRequest = ({
         black
         size={14}
       />
-      <CrossIcon />
       <Header text={type} style={ViewRequestStyles.type} black size={14} />
       <View style={ViewRequestStyles.decoration}>
         <View style={ViewRequestStyles.line} />
@@ -74,18 +114,39 @@ const ViewRequest = ({
       </View>
       <Text style={ViewRequestStyles.text}>{text}</Text>
       <View style={ViewRequestStyles.controls}>
-        <TouchableOpacity style={ViewRequestStyles.share} activeOpacity={0.8}>
+        <TouchableOpacity
+          style={ViewRequestStyles.share}
+          activeOpacity={0.8}
+          onPress={() => store.dispatch(share())}>
           <ShareIcon height={ViewRequestStyles.share.height} />
         </TouchableOpacity>
-        <TouchableOpacity style={ViewRequestStyles.likes} activeOpacity={0.8}>
+        <TouchableOpacity
+          style={[
+            ViewRequestStyles.likes,
+            {
+              backgroundColor: isLiked ? Colors.primaryColor : '#fff',
+            },
+          ]}
+          activeOpacity={0.8}
+          onPress={() => {
+            socket.emit('like', {uuid: requestId});
+            setLiked(true);
+          }}>
           <>
-            <LikeIcon />
-            <Text style={ViewRequestStyles.like}>{likes}</Text>
+            <LikeIcon style={{color: isLiked ? '#fff' : Colors.primaryColor}} />
+            <Text
+              style={[
+                ViewRequestStyles.like,
+                {color: isLiked ? '#fff' : Colors.designBlack},
+              ]}>
+              {likes}
+            </Text>
           </>
         </TouchableOpacity>
         <TouchableOpacity
           style={ViewRequestStyles.dislikes}
-          activeOpacity={0.8}>
+          activeOpacity={0.8}
+          onPress={() => socket.emit('dislike', {uuid: requestId})}>
           <>
             <DislikeIcon />
             <Text style={ViewRequestStyles.dislike}>{dislikes}</Text>

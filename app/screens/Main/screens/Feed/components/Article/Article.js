@@ -44,10 +44,11 @@ const Article = ({onPress, title, text, photos}) => {
       </View>
       <View style={ArticleStyles.right(photos ? photos.length : 0)}>
         <Header
-          text={cutText(title, 40)}
+          text={title}
           bold
           size={18}
           style={ArticleStyles.title}
+          numberOfLines={2}
         />
         <Text style={ArticleStyles.text} numberOfLines={5}>
           {text}

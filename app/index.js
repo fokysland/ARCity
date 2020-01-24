@@ -4,8 +4,14 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
 import {store, persistor} from '_redux/store';
 
+import {YellowBox} from 'react-native';
+
 import {NavigationNativeContainer, useLinking} from '@react-navigation/native';
 import RootNavigation from '_navigation/index';
+
+YellowBox.ignoreWarnings([
+  'Unrecognized WebSocket connection option(s) `agent`, `perMessageDeflate`, `pfx`, `key`, `passphrase`, `cert`, `ca`, `ciphers`, `rejectUnauthorized`. Did you mean to put these under `headers`?',
+]);
 
 const App = () => {
   const ref = useRef();

@@ -4,6 +4,7 @@ import {Helpers, Colors, Typography} from '_styles/index';
 
 const style = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
     paddingHorizontal: Helpers.scaleSize(36),
     paddingTop: Helpers.verticalScale(27),
@@ -99,8 +100,7 @@ const style = StyleSheet.create({
     textAlign: 'center',
   },
   dislikes: {
-    ...Typography.FONT_LIGHT,
-    fontSize: 14,
+    backgroundColor: '#fff',
     borderRadius: 10,
     paddingHorizontal: Helpers.scaleSize(20),
     paddingVertical: Helpers.verticalScale(10),

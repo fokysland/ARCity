@@ -30,6 +30,7 @@ const style = StyleSheet.create({
     color: Colors.designBlack,
   },
   text: {
+    marginTop: Helpers.verticalScale(5),
     ...Typography.FONT_REGULAR,
     color: Colors.designBlack,
     height: '70%',

@@ -12,7 +12,13 @@ import {
   setUri,
 } from './Registration.actions';
 
-import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+  StatusBar,
+} from 'react-native';
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -34,6 +40,11 @@ const RegistrationScreen = ({
 }) => {
   return (
     <ImageBackground source={background} style={registrationStyles.background}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
       <KeyboardAwareScrollView
         enableOnAndroid={true}
         contentContainerStyle={registrationStyles.container}>

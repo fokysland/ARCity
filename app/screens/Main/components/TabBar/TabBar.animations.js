@@ -16,7 +16,9 @@ import styles, {
 const TAB_BAR_SLIDE_TIME_MS = 300;
 const TAB_BAR_VISIBLE_POSITION_OFFSET = 0;
 const TAB_BAR_HIDDEN_POSITION_OFFSET =
-  styles.container.height + styles.container.bottom  + styles.createButtonImage.height;
+  styles.container.height +
+  styles.container.bottom +
+  styles.createButtonImage.height;
 
 export const getTabBarAnimations = () => {
   //animated values

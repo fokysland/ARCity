@@ -10,6 +10,7 @@ const style = StyleSheet.create({
     backgroundColor: Colors.designWhite,
   },
   feedContainer: {
+    paddingTop: Helpers.verticalScale(20),
     alignItems: 'center',
     paddingBottom: Helpers.verticalScale(100),
   },
